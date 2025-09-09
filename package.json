@@ -7,7 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run build && npx wrangler pages deploy .next --project-name=oisdrive-website --compatibility-date=2025-09-09"
+    "deploy": "npm run build && npx wrangler pages deploy .next --project-name=oisdrive-website"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

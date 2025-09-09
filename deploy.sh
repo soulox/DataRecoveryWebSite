@@ -14,7 +14,7 @@ if [ $? -eq 0 ]; then
     
     # Deploy to Cloudflare Pages using Wrangler
     echo "🌐 Deploying to Cloudflare Pages..."
-    npx wrangler pages deploy .next --project-name=oisdrive-website --compatibility-date=2025-09-09
+    npx wrangler pages deploy .next --project-name=oisdrive-website
     
     if [ $? -eq 0 ]; then
         echo "🎉 Deployment successful!"
