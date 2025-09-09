@@ -1,0 +1,539 @@
+# Cursor AI Rules for OISDRIVE Website
+
+## Project Overview
+OISDRIVE is a French data recovery laboratory with 18 years of expertise in data recovery, sensitive data processing, and large-scale data management. This website serves as the primary platform for lead generation, service demonstration, and client engagement for France's leading data recovery laboratory.
+
+## Project Context
+This document defines the rules and guidelines for Cursor AI when working with the OISDRIVE website project.
+
+### Technical Stack
+- **Platform**: Web application
+- **Framework**: Next.js 14+ with App Router
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS 3.4+ with custom design system
+- **Components**: shadcn/ui component library
+- **Deployment**: Vercel or similar JAMstack platform
+- **Content Management**: Headless CMS integration (Strapi/Sanity)
+- **Analytics**: Google Analytics 4 and Google Tag Manager
+
+### Target Audience
+- **Primary**: IT managers and decision-makers in medium to large enterprises
+- **Secondary**: Small business owners requiring data recovery services
+- **Tertiary**: Individual users with critical data recovery needs
+- **Geographic Focus**: France (primary), French-speaking regions (secondary)
+
+## Code Generation Rules
+
+### 1. Project Structure
+Follow these directory and file organization rules:
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── (routes)/          # Route groups
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Homepage
+├── components/            # Reusable components
+│   ├── ui/               # shadcn/ui components
+│   ├── forms/            # Form components
+│   ├── sections/         # Page sections
+│   └── layout/           # Layout components
+├── lib/                  # Utility functions
+│   ├── utils.ts          # General utilities
+│   ├── validations.ts    # Form validations
+│   └── constants.ts      # App constants
+├── types/                # TypeScript type definitions
+├── hooks/                # Custom React hooks
+├── styles/               # Additional styles
+└── public/               # Static assets
+```
+
+- Maintain the established project structure
+- Place components in appropriate directories based on their purpose
+- Follow kebab-case naming for files and directories
+- Use PascalCase for component files
+- Keep related files together in logical groups
+- Separate business logic from presentation components
+
+### 2. Code Style
+Adhere to these formatting rules:
+- Use 2 spaces for indentation (not tabs)
+- Maximum line length: 100 characters
+- Use semicolons consistently
+- Use single quotes for strings, double quotes for JSX attributes
+- Use trailing commas in objects and arrays
+- Use meaningful variable and function names
+- Follow TypeScript strict mode requirements
+- Use const assertions where appropriate
+
+### 3. Component Guidelines
+When generating components:
+- Use functional components with TypeScript
+- Implement proper prop typing with interfaces
+- Use React.FC type for functional components
+- Handle loading and error states appropriately
+- Implement proper accessibility (ARIA labels, semantic HTML)
+- Use React.memo for performance optimization when needed
+- Follow the single responsibility principle
+- Export components as default exports
+- Use named exports for utilities and types
+
+Example component structure:
+```typescript
+interface ComponentProps {
+  title: string;
+  description?: string;
+  onAction?: () => void;
+}
+
+const Component: React.FC<ComponentProps> = ({ 
+  title, 
+  description, 
+  onAction 
+}) => {
+  return (
+    <div className="component-container">
+      <h2>{title}</h2>
+      {description && <p>{description}</p>}
+      {onAction && (
+        <button onClick={onAction} type="button">
+          Action
+        </button>
+      )}
+    </div>
+  );
+};
+
+export default Component;
+```
+
+### 4. Type System
+For TypeScript implementation:
+- Use strict type checking enabled
+- Create proper interfaces for all data structures
+- Use union types for component variants
+- Implement proper error handling with Result types
+- Use type guards for runtime type checking
+- Document complex types with JSDoc comments
+- Avoid `any` type - use `unknown` if necessary
+- Use generic types for reusable components
+- Define API response types explicitly
+
+Example type definitions:
+```typescript
+// API Response types
+interface ApiResponse<T> {
+  data: T;
+  success: boolean;
+  message?: string;
+}
+
+// Form types
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  serviceType: ServiceType;
+  description: string;
+  files?: File[];
+}
+
+// Service types
+type ServiceType = 'data-recovery' | 'sensitive-data' | 'large-scale' | 'emergency';
+```
+
+### 5. API Integration
+When working with APIs:
+- Use Next.js API routes for backend functionality
+- Implement proper error handling with try-catch blocks
+- Use type-safe API calls with proper response typing
+- Handle loading states and error states
+- Implement proper form validation
+- Use environment variables for API endpoints
+- Implement rate limiting for contact forms
+- Use proper HTTP status codes
+- Document API endpoints with JSDoc
+
+Example API integration:
+```typescript
+// API route handler
+export async function POST(request: Request) {
+  try {
+    const data = await request.json();
+    const validatedData = contactFormSchema.parse(data);
+    
+    // Process the form data
+    const result = await processContactForm(validatedData);
+    
+    return NextResponse.json({ success: true, data: result });
+  } catch (error) {
+    return NextResponse.json(
+      { success: false, error: 'Invalid form data' },
+      { status: 400 }
+    );
+  }
+}
+```
+
+### 6. State Management
+For managing application state:
+- Use React's built-in state management (useState, useReducer)
+- Use React Query for server state management
+- Implement proper form state with react-hook-form
+- Use Context API for global state when needed
+- Follow immutability principles
+- Use useCallback and useMemo for performance optimization
+- Implement proper error boundaries
+- Use custom hooks for complex state logic
+
+### 7. Form Handling
+For form implementation:
+- Use react-hook-form for form management
+- Implement Zod for form validation
+- Use shadcn/ui form components
+- Handle file uploads properly
+- Implement proper error messages
+- Use proper form accessibility
+- Implement form submission states
+- Validate on both client and server side
+
+Example form implementation:
+```typescript
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, 'Le nom doit contenir au moins 2 caractères'),
+  email: z.string().email('Adresse email invalide'),
+  phone: z.string().min(10, 'Numéro de téléphone invalide'),
+  serviceType: z.enum(['data-recovery', 'sensitive-data', 'large-scale', 'emergency']),
+  description: z.string().min(10, 'Description trop courte'),
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
+
+const ContactForm: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    // Handle form submission
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* Form fields */}
+    </form>
+  );
+};
+```
+
+### 8. Styling Guidelines
+For styling implementation:
+- Use Tailwind CSS utility classes
+- Create custom CSS variables for brand colors
+- Use shadcn/ui components as base
+- Implement responsive design with mobile-first approach
+- Use consistent spacing and typography scales
+- Implement dark mode support where appropriate
+- Use CSS Grid and Flexbox for layouts
+- Optimize for Core Web Vitals
+
+Example styling approach:
+```typescript
+// Use Tailwind classes with custom design tokens
+<div className="bg-primary-50 text-primary-900 p-6 rounded-lg shadow-sm">
+  <h2 className="text-2xl font-bold mb-4">Titre de section</h2>
+  <p className="text-gray-600 leading-relaxed">
+    Contenu de la section avec un style cohérent.
+  </p>
+</div>
+```
+
+### 9. SEO and Performance
+For SEO and performance optimization:
+- Implement proper meta tags and Open Graph tags
+- Use Next.js Image component for optimized images
+- Implement proper heading hierarchy (h1, h2, h3)
+- Use semantic HTML elements
+- Implement lazy loading for below-the-fold content
+- Optimize bundle size with dynamic imports
+- Use proper alt text for images
+- Implement structured data (JSON-LD)
+- Ensure Core Web Vitals compliance
+
+Example SEO implementation:
+```typescript
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Récupération de Données - OISDRIVE | Expert Français',
+  description: 'OISDRIVE, laboratoire français expert en récupération de données depuis 18 ans. Solutions fiables pour restaurer vos données en cas de panne ou sinistre.',
+  keywords: 'récupération données, laboratoire français, expert données, OISDRIVE',
+  openGraph: {
+    title: 'OISDRIVE - Expert en Récupération de Données',
+    description: '18 ans d\'expertise en récupération de données',
+    type: 'website',
+    locale: 'fr_FR',
+  },
+};
+```
+
+### 10. Security Guidelines
+Enforce security practices:
+- Validate all user inputs on both client and server
+- Sanitize data output to prevent XSS
+- Use HTTPS for all communications
+- Implement proper CORS policies
+- Use environment variables for sensitive data
+- Implement rate limiting for forms
+- Use proper authentication for admin areas
+- Follow OWASP security guidelines
+- Implement Content Security Policy (CSP)
+- Use secure dependencies and keep them updated
+
+### 11. Accessibility Requirements
+Implement accessibility best practices:
+- Follow WCAG 2.1 AA guidelines
+- Use semantic HTML elements
+- Implement proper ARIA labels and roles
+- Ensure keyboard navigation works
+- Maintain proper color contrast ratios (4.5:1 minimum)
+- Provide alternative text for images
+- Use proper heading hierarchy
+- Implement focus management
+- Test with screen readers
+
+### 12. Internationalization
+For French language support:
+- Use proper French character encoding (UTF-8)
+- Implement French date and time formatting
+- Use French number formatting
+- Implement proper French typography
+- Use French business communication standards
+- Consider future English language support
+
+## Best Practices
+
+### 1. Code Quality
+- Write self-documenting code with clear variable names
+- Keep functions small and focused (max 20 lines)
+- Follow DRY principles but avoid premature abstraction
+- Use meaningful comments for complex business logic
+- Implement proper error handling with user-friendly messages
+- Write maintainable and testable code
+- Use consistent naming conventions throughout the project
+
+### 2. Performance Optimization
+- Implement code splitting with dynamic imports
+- Use React.lazy for component lazy loading
+- Optimize images with Next.js Image component
+- Implement proper caching strategies
+- Minimize bundle size with tree shaking
+- Use React.memo and useMemo appropriately
+- Implement virtual scrolling for large lists
+- Optimize Core Web Vitals metrics
+
+### 3. Security Best Practices
+- Validate all user inputs with Zod schemas
+- Sanitize data before rendering
+- Use HTTPS for all communications
+- Implement proper error handling without exposing sensitive information
+- Use secure authentication methods
+- Keep dependencies updated
+- Implement proper CORS policies
+- Use environment variables for configuration
+
+### 4. Testing Strategy
+- Write unit tests for utility functions
+- Implement integration tests for API routes
+- Use React Testing Library for component testing
+- Test accessibility with automated tools
+- Implement end-to-end tests for critical user journeys
+- Test form validation and submission
+- Test responsive design across devices
+- Implement performance testing
+
+### 5. Content Management
+- Use structured content with proper types
+- Implement content validation
+- Use proper French language conventions
+- Implement content versioning
+- Use proper image optimization
+- Implement content search functionality
+- Use proper content hierarchy
+- Implement content preview functionality
+
+## Project-Specific Rules
+
+### 1. OISDRIVE Brand Guidelines
+- Use professional, trustworthy tone in all content
+- Emphasize 18 years of expertise and French market leadership
+- Highlight laboratory-grade equipment and methodologies
+- Use technical but accessible language for complex services
+- Maintain consistent brand voice across all pages
+- Use proper French business communication standards
+
+### 2. Data Recovery Industry Context
+- Use accurate technical terminology
+- Implement proper security messaging for sensitive data
+- Highlight compliance with French data protection laws
+- Emphasize emergency response capabilities
+- Use case studies to demonstrate expertise
+- Implement proper trust indicators and certifications
+
+### 3. Lead Generation Focus
+- Optimize all pages for conversion
+- Implement clear call-to-action buttons
+- Use compelling value propositions
+- Implement proper contact forms with validation
+- Use trust signals and testimonials
+- Implement proper lead tracking and analytics
+
+### 4. French Market Considerations
+- Use proper French language conventions
+- Implement French business communication standards
+- Use Euro currency for pricing
+- Implement French date and time formats
+- Consider French cultural preferences
+- Implement proper French legal compliance
+
+## File Naming Conventions
+
+### Components
+- Use PascalCase for component files: `ContactForm.tsx`
+- Use kebab-case for component directories: `contact-form/`
+- Use descriptive names that indicate purpose: `EmergencyContactSection.tsx`
+
+### Utilities and Hooks
+- Use camelCase for utility files: `formatPhoneNumber.ts`
+- Use camelCase for hook files: `useContactForm.ts`
+- Use descriptive names: `validateEmailAddress.ts`
+
+### Types and Interfaces
+- Use PascalCase for type files: `ContactTypes.ts`
+- Use descriptive names: `ServiceTypes.ts`
+- Group related types in single files
+
+### Styles
+- Use kebab-case for CSS files: `contact-form.css`
+- Use descriptive names: `hero-section.css`
+- Group related styles together
+
+## Error Handling
+
+### 1. Form Validation Errors
+- Display clear, actionable error messages in French
+- Use proper error styling with shadcn/ui components
+- Implement real-time validation feedback
+- Provide helpful suggestions for fixing errors
+
+### 2. API Errors
+- Implement proper error boundaries
+- Display user-friendly error messages
+- Log detailed errors for debugging
+- Implement retry mechanisms for transient errors
+
+### 3. Network Errors
+- Handle offline scenarios gracefully
+- Implement proper loading states
+- Provide fallback content when possible
+- Use proper error recovery mechanisms
+
+## Documentation Requirements
+
+### 1. Code Documentation
+- Use JSDoc comments for complex functions
+- Document component props with TypeScript interfaces
+- Include usage examples for reusable components
+- Document API endpoints with proper descriptions
+
+### 2. README Documentation
+- Include project setup instructions
+- Document environment variables
+- Include deployment instructions
+- Document testing procedures
+
+### 3. Component Documentation
+- Document component purpose and usage
+- Include prop descriptions
+- Provide usage examples
+- Document any special considerations
+
+## Deployment and Environment
+
+### 1. Environment Variables
+- Use proper environment variable naming
+- Document all required environment variables
+- Use different configurations for different environments
+- Implement proper secret management
+
+### 2. Build and Deployment
+- Use Next.js build optimization
+- Implement proper caching strategies
+- Use CDN for static assets
+- Implement proper monitoring and logging
+
+### 3. Performance Monitoring
+- Implement Core Web Vitals monitoring
+- Use proper analytics tracking
+- Monitor error rates and performance
+- Implement proper alerting
+
+## Quality Assurance
+
+### 1. Code Review Checklist
+- [ ] TypeScript types are properly defined
+- [ ] Components follow accessibility guidelines
+- [ ] Performance optimizations are implemented
+- [ ] Security best practices are followed
+- [ ] French language conventions are used
+- [ ] Brand guidelines are followed
+- [ ] Tests are written and passing
+- [ ] Documentation is updated
+
+### 2. Testing Requirements
+- [ ] Unit tests for utility functions
+- [ ] Component tests for UI components
+- [ ] Integration tests for API routes
+- [ ] Accessibility tests for all pages
+- [ ] Performance tests for critical paths
+- [ ] Cross-browser compatibility tests
+- [ ] Mobile responsiveness tests
+
+### 3. Launch Criteria
+- [ ] All pages load within 2 seconds
+- [ ] Lighthouse score 90+ for all pages
+- [ ] WCAG 2.1 AA compliance verified
+- [ ] Cross-browser compatibility confirmed
+- [ ] Mobile responsiveness tested
+- [ ] Security scan passed
+- [ ] Analytics and monitoring active
+- [ ] French language content reviewed
+- [ ] Contact forms tested and working
+- [ ] Emergency contact information verified
+
+---
+
+## Notes for Cursor AI
+
+When working on this project:
+
+1. **Always prioritize French language content** - This is a French company targeting French-speaking markets
+2. **Emphasize trust and expertise** - The company's 18-year track record is a key differentiator
+3. **Focus on lead generation** - Every page should have clear conversion paths
+4. **Maintain professional tone** - This is a B2B service for serious data recovery needs
+5. **Implement proper security** - Data recovery involves sensitive information
+6. **Optimize for performance** - Fast loading is crucial for user experience
+7. **Follow accessibility guidelines** - Ensure the site is usable by everyone
+8. **Use proper TypeScript** - Maintain type safety throughout the application
+9. **Implement proper testing** - Ensure reliability and maintainability
+10. **Follow Next.js best practices** - Use App Router and modern Next.js features
+
+Remember: This is a professional data recovery laboratory website that needs to establish trust, demonstrate expertise, and generate qualified leads for a French market leader in data recovery services.
