@@ -223,13 +223,20 @@ Politique de confidentialité: https://oisdrive.com/privacy
   return { adminEmail, userEmail }
 }
 
-// Initialize Mailgun client
-const mailgun = new Mailgun(FormData)
-const mg = mailgun.client({
-  username: 'api',
-  key: process.env.MAILGUN_API_KEY!,
-  url: process.env.MAILGUN_URL || 'https://api.mailgun.net'
-})
+// Initialize Mailgun client only when environment variables are available
+let mg: ReturnType<typeof Mailgun.prototype.client> | null = null
+
+function initializeMailgun() {
+  if (!mg && process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN) {
+    const mailgun = new Mailgun(FormData)
+    mg = mailgun.client({
+      username: 'api',
+      key: process.env.MAILGUN_API_KEY,
+      url: process.env.MAILGUN_URL || 'https://api.mailgun.net'
+    })
+  }
+  return mg
+}
 
 // Email sending function using Mailgun
 export async function sendEmail(to: string, template: EmailTemplate): Promise<boolean> {
@@ -243,8 +250,14 @@ export async function sendEmail(to: string, template: EmailTemplate): Promise<bo
       return true // Return true to not break the form submission
     }
 
+    // Initialize Mailgun client
+    const mailgunClient = initializeMailgun()
+    if (!mailgunClient) {
+      throw new Error('Mailgun client not initialized')
+    }
+
     // Send email via Mailgun
-    const result = await mg.messages.create(process.env.MAILGUN_DOMAIN!, {
+    const result = await mailgunClient.messages.create(process.env.MAILGUN_DOMAIN!, {
       from: process.env.MAILGUN_FROM_EMAIL || 'OISDRIVE <noreply@oisdrive.com>',
       to: [to],
       subject: template.subject,
