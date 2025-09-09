@@ -162,7 +162,7 @@ export default function ServicesPage() {
               <div className="space-y-2">
                 <h3 className="text-lg font-semibold">Disponibilité 24h/24</h3>
                 <p className="text-sm text-muted-foreground">
-                  Service d'urgence pour situations critiques
+                  Service d&apos;urgence pour situations critiques
                 </p>
               </div>
             </div>

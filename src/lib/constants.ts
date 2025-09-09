@@ -71,7 +71,7 @@ export const SERVICES = [
     description: 'Service d\'urgence 24h/24 pour les situations critiques nécessitant une intervention immédiate.',
     features: [
       'Intervention 24h/24',
-      'Délai de réponse < 2h',
+      'Délai de réponse &lt; 2h',
       'Équipe d\'experts mobilisée',
       'Solutions temporaires',
       'Suivi personnalisé'
@@ -92,9 +92,9 @@ export const NAVIGATION_ITEMS = [
     href: '/services',
     children: [
       { label: 'Récupération de Données', href: '/services/data-recovery' },
-      { label: 'Données Sensibles', href: '/services/sensitive-data' },
-      { label: 'Données Volumineuses', href: '/services/large-scale' },
-      { label: 'Urgences', href: '/services/emergency' }
+      { label: 'Données Sensibles', href: '/services/sensitive-data-processing' },
+      { label: 'Données Volumineuses', href: '/services/large-scale-data-management' },
+      { label: 'Urgences', href: '/services/emergency-recovery' }
     ]
   },
   {
@@ -108,6 +108,10 @@ export const NAVIGATION_ITEMS = [
   {
     label: 'Contact',
     href: '/contact'
+  },
+  {
+    label: 'Confidentialité',
+    href: '/privacy'
   }
 ] as const
 

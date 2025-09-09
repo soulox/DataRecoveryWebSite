@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/services/sensitive-data"
+                  href="/services/sensitive-data-processing"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Données Sensibles
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/services/large-scale"
+                  href="/services/large-scale-data-management"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Données Volumineuses
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/services/emergency"
+                  href="/services/emergency-recovery"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Urgences 24h/24
@@ -143,22 +143,10 @@ export const Footer: React.FC = () => {
             </div>
             <div className="flex items-center space-x-6 text-sm text-muted-foreground">
               <Link
-                href="/legal"
-                className="hover:text-foreground transition-colors"
-              >
-                Mentions Légales
-              </Link>
-              <Link
                 href="/privacy"
                 className="hover:text-foreground transition-colors"
               >
                 Politique de Confidentialité
-              </Link>
-              <Link
-                href="/cookies"
-                className="hover:text-foreground transition-colors"
-              >
-                Cookies
               </Link>
             </div>
           </div>

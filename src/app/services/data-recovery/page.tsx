@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { CheckCircle, AlertTriangle, Clock, Shield, HardDrive, Database } from 'lucide-react'
@@ -80,25 +81,38 @@ export default function DataRecoveryPage() {
                 </Button>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="p-4 bg-background border rounded-lg">
-                  <div className="text-2xl font-bold text-primary">98%</div>
-                  <div className="text-sm text-muted-foreground">Taux de réussite</div>
-                </div>
-                <div className="p-4 bg-background border rounded-lg">
-                  <div className="text-2xl font-bold text-primary">2-7j</div>
-                  <div className="text-sm text-muted-foreground">Délai moyen</div>
-                </div>
+            <div className="space-y-6">
+              {/* Service Image */}
+              <div className="mb-6 w-full">
+                <Image
+                  src="/images/services/data-recovery.svg"
+                  alt="Processus de récupération de données - OISDRIVE"
+                  width={400}
+                  height={300}
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
               </div>
-              <div className="space-y-4 mt-8">
-                <div className="p-4 bg-background border rounded-lg">
-                  <div className="text-2xl font-bold text-primary">150€</div>
-                  <div className="text-sm text-muted-foreground">À partir de</div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="p-4 bg-background border rounded-lg">
+                    <div className="text-2xl font-bold text-primary">98%</div>
+                    <div className="text-sm text-muted-foreground">Taux de réussite</div>
+                  </div>
+                  <div className="p-4 bg-background border rounded-lg">
+                    <div className="text-2xl font-bold text-primary">2-7j</div>
+                    <div className="text-sm text-muted-foreground">Délai moyen</div>
+                  </div>
                 </div>
-                <div className="p-4 bg-background border rounded-lg">
-                  <div className="text-2xl font-bold text-primary">24h/24</div>
-                  <div className="text-sm text-muted-foreground">Disponibilité</div>
+                <div className="space-y-4">
+                  <div className="p-4 bg-background border rounded-lg">
+                    <div className="text-2xl font-bold text-primary">150€</div>
+                    <div className="text-sm text-muted-foreground">À partir de</div>
+                  </div>
+                  <div className="p-4 bg-background border rounded-lg">
+                    <div className="text-2xl font-bold text-primary">24h/24</div>
+                    <div className="text-sm text-muted-foreground">Disponibilité</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -184,7 +198,7 @@ export default function DataRecoveryPage() {
             <CardContent className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold">Situations d'Urgence</h3>
+                  <h3 className="text-lg font-semibold">Situations d&apos;Urgence</h3>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center space-x-2">
                       <AlertTriangle className="h-4 w-4 text-destructive" />

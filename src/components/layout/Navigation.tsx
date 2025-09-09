@@ -37,7 +37,7 @@ export const Navigation: React.FC = () => {
                 >
                   {item.label}
                 </Link>
-                {item.children && (
+                {'children' in item && item.children && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-background border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     {item.children.map((child) => (
                       <Link
@@ -90,7 +90,7 @@ export const Navigation: React.FC = () => {
                   >
                     {item.label}
                   </Link>
-                  {item.children && (
+                  {'children' in item && item.children && (
                     <div className="ml-4 space-y-1">
                       {item.children.map((child) => (
                         <Link

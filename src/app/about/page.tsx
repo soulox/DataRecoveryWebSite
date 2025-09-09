@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { COMPANY_INFO, TEAM_MEMBERS } from '@/lib/constants'
@@ -150,6 +151,17 @@ export default function AboutPage() {
             </div>
 
             <div className="space-y-6">
+              {/* Laboratory Image */}
+              <div className="mb-6 w-full">
+                <Image
+                  src="/images/about/laboratory.svg"
+                  alt="Laboratoire OISDRIVE - Blagnac, France"
+                  width={500}
+                  height={350}
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+              
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-6 bg-background border rounded-lg text-center">
                   <div className="text-3xl font-bold text-primary mb-2">98%</div>
@@ -161,7 +173,7 @@ export default function AboutPage() {
                 </div>
                 <div className="p-6 bg-background border rounded-lg text-center">
                   <div className="text-3xl font-bold text-primary mb-2">24h/24</div>
-                  <div className="text-sm text-muted-foreground">Service d'urgence</div>
+                  <div className="text-sm text-muted-foreground">Service d&apos;urgence</div>
                 </div>
                 <div className="p-6 bg-background border rounded-lg text-center">
                   <div className="text-3xl font-bold text-primary mb-2">18</div>
@@ -255,6 +267,17 @@ export default function AboutPage() {
             </p>
           </div>
 
+          {/* Team Image */}
+          <div className="mb-12 flex justify-center w-full">
+            <Image
+              src="/images/about/team.svg"
+              alt="Équipe d'experts OISDRIVE"
+              width={400}
+              height={300}
+              className="w-full max-w-md h-auto rounded-lg shadow-lg"
+            />
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {TEAM_MEMBERS.map((member) => (
               <Card key={member.id} className="text-center">

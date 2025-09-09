@@ -1,0 +1,39 @@
+<svg width="500" height="350" viewBox="0 0 500 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="500" height="350" fill="#f8fafc"/>
+  
+  <!-- Laboratory Building -->
+  <rect x="50" y="100" width="400" height="200" fill="#e2e8f0" rx="8"/>
+  <rect x="60" y="110" width="380" height="180" fill="#f1f5f9" rx="4"/>
+  
+  <!-- Windows -->
+  <rect x="100" y="130" width="60" height="80" fill="#3b82f6" opacity="0.3" rx="4"/>
+  <rect x="180" y="130" width="60" height="80" fill="#3b82f6" opacity="0.3" rx="4"/>
+  <rect x="260" y="130" width="60" height="80" fill="#3b82f6" opacity="0.3" rx="4"/>
+  <rect x="340" y="130" width="60" height="80" fill="#3b82f6" opacity="0.3" rx="4"/>
+  
+  <!-- Clean Room Equipment -->
+  <rect x="120" y="230" width="40" height="60" fill="#374151" rx="4"/>
+  <rect x="180" y="230" width="40" height="60" fill="#374151" rx="4"/>
+  <rect x="240" y="230" width="40" height="60" fill="#374151" rx="4"/>
+  <rect x="300" y="230" width="40" height="60" fill="#374151" rx="4"/>
+  <rect x="360" y="230" width="40" height="60" fill="#374151" rx="4"/>
+  
+  <!-- Security Badge -->
+  <circle cx="400" cy="50" r="25" fill="#10b981" opacity="0.8"/>
+  <path d="M390 50 L400 60 L410 50" stroke="white" stroke-width="2" fill="none"/>
+  
+  <!-- ISO Certification -->
+  <rect x="50" y="50" width="80" height="40" fill="#f59e0b" opacity="0.8" rx="4"/>
+  <text x="90" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">ISO 27001</text>
+  
+  <!-- Title -->
+  <text x="250" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1e293b">
+    Laboratoire OISDRIVE
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="250" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#64748b">
+    Blagnac, France - 18 ans d'expertise
+  </text>
+</svg>

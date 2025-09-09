@@ -81,7 +81,7 @@ export const ServicesSection: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="destructive">
-                <Link href="/services/emergency">
+                <Link href="/services/emergency-recovery">
                   Urgence - Appel Immédiat
                 </Link>
               </Button>

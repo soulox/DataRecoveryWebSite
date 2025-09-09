@@ -1,0 +1,43 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Team Members -->
+  <!-- Person 1 -->
+  <circle cx="100" cy="100" r="30" fill="#3b82f6" opacity="0.8"/>
+  <text x="100" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">JM</text>
+  <text x="100" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">Jean Martin</text>
+  <text x="100" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Directeur Technique</text>
+  
+  <!-- Person 2 -->
+  <circle cx="200" cy="100" r="30" fill="#10b981" opacity="0.8"/>
+  <text x="200" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">MD</text>
+  <text x="200" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">Marie Dubois</text>
+  <text x="200" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Ingénieure</text>
+  
+  <!-- Person 3 -->
+  <circle cx="300" cy="100" r="30" fill="#8b5cf6" opacity="0.8"/>
+  <text x="300" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">PB</text>
+  <text x="300" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">Pierre Bernard</text>
+  <text x="300" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Spécialiste RGPD</text>
+  
+  <!-- Expertise Icons -->
+  <circle cx="100" cy="200" r="20" fill="#f59e0b" opacity="0.6"/>
+  <text x="100" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">RAID</text>
+  
+  <circle cx="200" cy="200" r="20" fill="#ef4444" opacity="0.6"/>
+  <text x="200" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">SSD</text>
+  
+  <circle cx="300" cy="200" r="20" fill="#06b6d4" opacity="0.6"/>
+  <text x="300" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">RGPD</text>
+  
+  <!-- Title -->
+  <text x="200" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">
+    Équipe d'Experts
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="200" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">
+    15+ ans d'expérience moyenne
+  </text>
+</svg>

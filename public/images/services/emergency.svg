@@ -1,0 +1,38 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Emergency Alert -->
+  <circle cx="200" cy="120" r="40" fill="#ef4444" opacity="0.8"/>
+  <text x="200" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">!</text>
+  
+  <!-- Clock -->
+  <circle cx="200" cy="120" r="35" stroke="#ef4444" stroke-width="3" fill="none"/>
+  <line x1="200" y1="120" x2="200" y2="100" stroke="#ef4444" stroke-width="3"/>
+  <line x1="200" y1="120" x2="210" y2="120" stroke="#ef4444" stroke-width="2"/>
+  
+  <!-- Phone -->
+  <rect x="150" y="180" width="100" height="60" fill="#374151" rx="8"/>
+  <rect x="160" y="190" width="80" height="40" fill="#4b5563" rx="4"/>
+  <circle cx="200" cy="210" r="8" fill="#10b981"/>
+  
+  <!-- Response Time -->
+  <text x="200" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ef4444">
+    Réponse &lt; 2h
+  </text>
+  
+  <!-- 24/7 Service -->
+  <text x="200" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">
+    24h/24 - 7j/7
+  </text>
+  
+  <!-- Title -->
+  <text x="200" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">
+    Service d'Urgence
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="200" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">
+    Intervention Immédiate
+  </text>
+</svg>

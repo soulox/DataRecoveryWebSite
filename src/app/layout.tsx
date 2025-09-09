@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: SEO_DEFAULT.title,
   description: SEO_DEFAULT.description,
-  keywords: SEO_DEFAULT.keywords,
+  keywords: [...SEO_DEFAULT.keywords],
   authors: [{ name: COMPANY_INFO.name }],
   creator: COMPANY_INFO.name,
   publisher: COMPANY_INFO.name,

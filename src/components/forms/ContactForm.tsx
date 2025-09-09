@@ -98,23 +98,36 @@ export const ContactForm: React.FC = () => {
     setSubmitStatus('idle')
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      // Here you would typically send the data to your API
-      console.log('Form submitted:', formData)
-      
-      setSubmitStatus('success')
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        serviceType: 'data-recovery',
-        urgency: 'medium',
-        description: '',
-        files: []
+      // Send form data to API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          files: formData.files?.map(file => file.name) || []
+        }),
       })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setSubmitStatus('success')
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          serviceType: 'data-recovery',
+          urgency: 'medium',
+          description: '',
+          files: []
+        })
+      } else {
+        console.error('Form submission error:', result.message)
+        setSubmitStatus('error')
+      }
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmitStatus('error')
@@ -251,7 +264,7 @@ export const ContactForm: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="urgency">Niveau d'urgence *</Label>
+              <Label htmlFor="urgency">Niveau d&apos;urgence *</Label>
               <Select
                 value={formData.urgency}
                 onValueChange={(value: UrgencyLevel) => handleInputChange('urgency', value)}

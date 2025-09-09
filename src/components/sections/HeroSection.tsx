@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { COMPANY_INFO } from '@/lib/constants'
 import { Phone, Shield, Clock, Award } from 'lucide-react'
@@ -44,7 +45,7 @@ export const HeroSection: React.FC = () => {
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-primary">24h/24</div>
                 <div className="text-sm text-muted-foreground">
-                  Service d'urgence
+                  Service d&apos;urgence
                 </div>
               </div>
               <div className="space-y-2">
@@ -88,6 +89,18 @@ export const HeroSection: React.FC = () => {
 
           {/* Visual Elements */}
           <div className="relative">
+            {/* Hero Image */}
+            <div className="mb-8 w-full">
+              <Image
+                src="/images/hero/data-recovery-hero.svg"
+                alt="Récupération de données - Laboratoire OISDRIVE"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-lg shadow-lg"
+                priority
+              />
+            </div>
+            
             <div className="grid grid-cols-2 gap-4">
               {/* Trust Indicators */}
               <div className="space-y-4">
@@ -110,7 +123,7 @@ export const HeroSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="space-y-4 mt-8">
+              <div className="space-y-4">
                 <div className="flex items-center space-x-3 p-4 bg-background border rounded-lg shadow-sm">
                   <Award className="h-8 w-8 text-primary" />
                   <div>
