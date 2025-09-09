@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { COMPANY_INFO, TEAM_MEMBERS } from '@/lib/constants'
-import { Award, Users, MapPin, Calendar, Shield, Clock, Database, Phone } from 'lucide-react'
+import { Award, Users, MapPin, Calendar, Shield, Clock } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

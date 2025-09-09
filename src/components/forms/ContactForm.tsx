@@ -147,7 +147,7 @@ export const ContactForm: React.FC = () => {
                 Demande Envoyée avec Succès !
               </h3>
               <p className="text-green-700 mt-2">
-                Merci pour votre demande. Notre équipe d'experts vous contactera 
+                Merci pour votre demande. Notre équipe d&apos;experts vous contactera 
                 dans les plus brefs délais pour évaluer vos besoins.
               </p>
             </div>

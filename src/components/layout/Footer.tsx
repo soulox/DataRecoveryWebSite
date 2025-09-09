@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { COMPANY_INFO, NAVIGATION_ITEMS } from '@/lib/constants'
+import { COMPANY_INFO } from '@/lib/constants'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 
 export const Footer: React.FC = () => {
