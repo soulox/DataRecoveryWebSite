@@ -44,7 +44,7 @@ export default function DataRecoveryPage() {
     },
     {
       title: 'Livraison des Données',
-      description: 'Remise de vos données sur un support neuf avec rapport détaillé de l\'intervention.',
+      description: 'Remise de vos données sur un support neuf avec rapport détaillé de l&apos;intervention.',
       duration: 'Immédiat'
     }
   ]
@@ -189,7 +189,7 @@ export default function DataRecoveryPage() {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2 text-destructive">
                 <AlertTriangle className="h-6 w-6" />
-                <span>Service d'Urgence 24h/24</span>
+                <span>Service d&apos;Urgence 24h/24</span>
               </CardTitle>
               <CardDescription>
                 Pour les situations critiques nécessitant une intervention immédiate
@@ -202,7 +202,7 @@ export default function DataRecoveryPage() {
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center space-x-2">
                       <AlertTriangle className="h-4 w-4 text-destructive" />
-                      <span>Données critiques pour l'entreprise</span>
+                      <span>Données critiques pour l&apos;entreprise</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <AlertTriangle className="h-4 w-4 text-destructive" />
@@ -227,7 +227,7 @@ export default function DataRecoveryPage() {
                     </li>
                     <li className="flex items-center space-x-2">
                       <Shield className="h-4 w-4 text-primary" />
-                      <span>Équipe d'experts mobilisée</span>
+                      <span>Équipe d&apos;experts mobilisée</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <Shield className="h-4 w-4 text-primary" />

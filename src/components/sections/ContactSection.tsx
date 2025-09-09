@@ -14,7 +14,7 @@ export const ContactSection: React.FC = () => {
             Contactez Nos Experts
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Notre équipe d'experts est à votre disposition pour évaluer vos besoins 
+            Notre équipe d&apos;experts est à votre disposition pour évaluer vos besoins 
             et vous proposer la solution la plus adaptée à votre situation.
           </p>
         </div>

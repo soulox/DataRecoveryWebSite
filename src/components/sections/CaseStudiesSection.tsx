@@ -11,7 +11,7 @@ export const CaseStudiesSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold">
-            Cas d'Études et Succès
+            Cas d&apos;Études et Succès
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Découvrez comment nous avons aidé nos clients à récupérer leurs données 
@@ -77,7 +77,7 @@ export const CaseStudiesSection: React.FC = () => {
                 {caseStudy.testimonial && (
                   <div className="p-4 bg-muted/50 rounded-lg">
                     <p className="text-sm italic text-muted-foreground">
-                      "{caseStudy.testimonial}"
+                      &quot;{caseStudy.testimonial}&quot;
                     </p>
                   </div>
                 )}
@@ -100,7 +100,7 @@ export const CaseStudiesSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
               <Link href="/case-studies">
-                Voir Tous les Cas d'Études
+                Voir Tous les Cas d&apos;Études
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

@@ -24,7 +24,7 @@ export default function ServicesPage() {
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Des solutions complètes pour tous vos besoins de récupération de données, 
-              du simple disque dur aux systèmes d'entreprise les plus complexes.
+              du simple disque dur aux systèmes d&apos;entreprise les plus complexes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
@@ -134,7 +134,7 @@ export default function ServicesPage() {
               <div className="space-y-2">
                 <h3 className="text-lg font-semibold">Expertise Reconnue</h3>
                 <p className="text-sm text-muted-foreground">
-                  {COMPANY_INFO.experience} ans d'expérience en récupération de données
+                  {COMPANY_INFO.experience} ans d&apos;expérience en récupération de données
                 </p>
               </div>
             </div>
@@ -202,7 +202,7 @@ export default function ServicesPage() {
               {
                 step: '04',
                 title: 'Livraison',
-                description: 'Remise de vos données récupérées sur un support neuf avec rapport détaillé de l\'intervention.'
+                description: 'Remise de vos données récupérées sur un support neuf avec rapport détaillé de l&apos;intervention.'
               }
             ].map((process, index) => (
               <div key={index} className="text-center space-y-4">

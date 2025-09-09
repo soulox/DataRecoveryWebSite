@@ -7,9 +7,9 @@ import { CheckCircle, Clock, Database, ArrowRight, Quote } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Cas d\'Études - OISDRIVE | Succès en Récupération de Données',
-  description: 'Découvrez nos cas d\'études et succès en récupération de données : centres médicaux, entreprises industrielles, cabinets d\'avocats.',
-  keywords: ['cas d\'études', 'succès', 'récupération données', 'témoignages', 'OISDRIVE', 'exemples'],
+  title: 'Cas d&apos;Études - OISDRIVE | Succès en Récupération de Données',
+  description: 'Découvrez nos cas d&apos;études et succès en récupération de données : centres médicaux, entreprises industrielles, cabinets d&apos;avocats.',
+  keywords: ['cas d&apos;études', 'succès', 'récupération données', 'témoignages', 'OISDRIVE', 'exemples'],
 }
 
 export default function CaseStudiesPage() {
@@ -20,7 +20,7 @@ export default function CaseStudiesPage() {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-6">
             <h1 className="text-4xl lg:text-5xl font-bold">
-              Cas d'Études et Succès
+              Cas d&apos;Études et Succès
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Découvrez comment nous avons aidé nos clients à récupérer leurs données 
@@ -30,7 +30,7 @@ export default function CaseStudiesPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
                 <Link href="/contact">
-                  Votre Cas d'Étude
+                  Votre Cas d&apos;Étude
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
@@ -150,7 +150,7 @@ export default function CaseStudiesPage() {
 
             <div className="text-center space-y-4 p-6 bg-background rounded-lg border shadow-sm">
               <div className="text-4xl font-bold text-primary">18</div>
-              <div className="text-lg font-semibold">Années d'Expérience</div>
+              <div className="text-lg font-semibold">Années d&apos;Expérience</div>
               <div className="text-sm text-muted-foreground">
                 Expertise accumulée depuis notre création
               </div>
@@ -158,7 +158,7 @@ export default function CaseStudiesPage() {
 
             <div className="text-center space-y-4 p-6 bg-background rounded-lg border shadow-sm">
               <div className="text-4xl font-bold text-primary">24h/24</div>
-              <div className="text-lg font-semibold">Service d'Urgence</div>
+              <div className="text-lg font-semibold">Service d&apos;Urgence</div>
               <div className="text-sm text-muted-foreground">
                 Disponibilité pour situations critiques
               </div>
@@ -172,10 +172,10 @@ export default function CaseStudiesPage() {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold">
-              Secteurs d'Activité Servis
+              Secteurs d&apos;Activité Servis
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Notre expertise s'étend à tous les secteurs d'activité, 
+              Notre expertise s&apos;étend à tous les secteurs d&apos;activité, 
               avec une attention particulière aux données sensibles.
             </p>
           </div>

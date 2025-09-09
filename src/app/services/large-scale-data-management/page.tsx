@@ -8,13 +8,13 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Gestion des Données Volumineuses - OISDRIVE | Solutions Entreprise',
-  description: 'Solutions complètes pour la gestion et récupération de grandes quantités de données d\'entreprise : serveurs, bases de données, archives numériques.',
+  description: 'Solutions complètes pour la gestion et récupération de grandes quantités de données d&apos;entreprise : serveurs, bases de données, archives numériques.',
   keywords: ['données volumineuses', 'serveurs entreprise', 'bases de données', 'archives numériques', 'migration données', 'OISDRIVE'],
 }
 
 export default function LargeScaleDataManagementPage() {
   const capabilities = [
-    'Serveurs d\'entreprise (Windows, Linux, Unix)',
+    'Serveurs d&apos;entreprise (Windows, Linux, Unix)',
     'Bases de données volumineuses (SQL Server, Oracle, MySQL)',
     'Systèmes de stockage SAN/NAS',
     'Archives numériques et documentaires',
@@ -29,7 +29,7 @@ export default function LargeScaleDataManagementPage() {
   const solutions = [
     {
       title: 'Récupération Serveurs',
-      description: 'Récupération complète de serveurs d\'entreprise endommagés',
+      description: 'Récupération complète de serveurs d&apos;entreprise endommagés',
       features: [
         'Serveurs Windows Server',
         'Systèmes Linux/Unix',
@@ -59,7 +59,7 @@ export default function LargeScaleDataManagementPage() {
       features: [
         'Systèmes SAN (Fibre Channel, iSCSI)',
         'NAS et systèmes de fichiers',
-        'RAID d\'entreprise',
+        'RAID d&apos;entreprise',
         'Systèmes de réplication'
       ],
       icon: <HardDrive className="h-8 w-8" />,
@@ -90,7 +90,7 @@ export default function LargeScaleDataManagementPage() {
     },
     {
       title: 'Planification',
-      description: 'Développement d\'une stratégie personnalisée avec planning détaillé.',
+      description: 'Développement d&apos;une stratégie personnalisée avec planning détaillé.',
       duration: '1 jour',
       icon: <Users className="h-6 w-6" />
     },
@@ -111,13 +111,13 @@ export default function LargeScaleDataManagementPage() {
   const enterpriseFeatures = [
     {
       title: 'Expertise Technique',
-      description: 'Équipe d\'ingénieurs spécialisés dans les infrastructures d\'entreprise',
-      stats: '15+ ans d\'expérience'
+      description: 'Équipe d&apos;ingénieurs spécialisés dans les infrastructures d&apos;entreprise',
+      stats: '15+ ans d&apos;expérience'
     },
     {
       title: 'Équipements Avancés',
       description: 'Laboratoire équipé des dernières technologies de récupération',
-      stats: '2M€ d\'équipements'
+      stats: '2M€ d&apos;équipements'
     },
     {
       title: 'Disponibilité',
@@ -126,7 +126,7 @@ export default function LargeScaleDataManagementPage() {
     },
     {
       title: 'Sécurité',
-      description: 'Conformité aux standards de sécurité d\'entreprise',
+      description: 'Conformité aux standards de sécurité d&apos;entreprise',
       stats: 'ISO 27001 certifié'
     }
   ]
@@ -147,7 +147,7 @@ export default function LargeScaleDataManagementPage() {
               </h1>
               <p className="text-xl text-muted-foreground">
                 Solutions complètes pour la récupération et la gestion de grandes quantités 
-                de données d\'entreprise. Expertise reconnue dans les infrastructures complexes.
+                de données d&apos;entreprise. Expertise reconnue dans les infrastructures complexes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg">
@@ -209,7 +209,7 @@ export default function LargeScaleDataManagementPage() {
               Nos Capacités Techniques
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Nous gérons tous types d\'infrastructures d\'entreprise, 
+              Nous gérons tous types d&apos;infrastructures d&apos;entreprise, 
               des serveurs aux systèmes de stockage les plus complexes.
             </p>
           </div>
@@ -233,7 +233,7 @@ export default function LargeScaleDataManagementPage() {
               Solutions Spécialisées
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Des solutions adaptées à chaque type d\'infrastructure d\'entreprise
+              Des solutions adaptées à chaque type d&apos;infrastructure d&apos;entreprise
             </p>
           </div>
 
@@ -289,7 +289,7 @@ export default function LargeScaleDataManagementPage() {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold">
-              Notre Processus d'Intervention
+              Notre Processus d&apos;Intervention
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Un processus structuré pour garantir la réussite de votre projet
@@ -327,7 +327,7 @@ export default function LargeScaleDataManagementPage() {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold">
-              Pourquoi Choisir OISDRIVE pour l'Entreprise ?
+              Pourquoi Choisir OISDRIVE pour l&apos;Entreprise ?
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Notre expertise et nos ressources en font le partenaire idéal 
@@ -412,8 +412,8 @@ export default function LargeScaleDataManagementPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Cabinet d\'Avocats</CardTitle>
-                <CardDescription>Récupération d\'archives juridiques</CardDescription>
+                <CardTitle className="text-lg">Cabinet d&apos;Avocats</CardTitle>
+                <CardDescription>Récupération d&apos;archives juridiques</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2 text-sm">
@@ -433,7 +433,7 @@ export default function LargeScaleDataManagementPage() {
           <div className="text-center mt-8">
             <Button asChild variant="outline" size="lg">
               <Link href="/case-studies">
-                Voir Tous les Cas d'Études
+                Voir Tous les Cas d&apos;Études
               </Link>
             </Button>
           </div>
@@ -445,7 +445,7 @@ export default function LargeScaleDataManagementPage() {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-6">
             <h2 className="text-3xl lg:text-4xl font-bold">
-              Prêt à Récupérer Vos Données d'Entreprise ?
+              Prêt à Récupérer Vos Données d&apos;Entreprise ?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Contactez nos experts pour un audit gratuit de votre infrastructure. 

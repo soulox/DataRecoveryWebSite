@@ -9,7 +9,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'À Propos - OISDRIVE | Laboratoire Français Expert en Récupération de Données',
-  description: 'Découvrez OISDRIVE, laboratoire français expert en récupération de données depuis 18 ans. Notre équipe d\'ingénieurs et notre expertise.',
+  description: 'Découvrez OISDRIVE, laboratoire français expert en récupération de données depuis 18 ans. Notre équipe d&apos;ingénieurs et notre expertise.',
   keywords: ['à propos', 'OISDRIVE', 'laboratoire français', 'équipe', 'expertise', 'récupération données', 'Blagnac'],
 }
 
@@ -17,23 +17,23 @@ export default function AboutPage() {
   const milestones = [
     {
       year: '2006',
-      title: 'Fondation d\'OISDRIVE',
+      title: 'Fondation d&apos;OISDRIVE',
       description: 'Création du laboratoire de récupération de données à Blagnac'
     },
     {
       year: '2010',
       title: 'Certification ISO 27001',
-      description: 'Obtention de la certification sécurité de l\'information'
+      description: 'Obtention de la certification sécurité de l&apos;information'
     },
     {
       year: '2015',
-      title: 'Expansion de l\'Équipe',
-      description: 'Recrutement d\'ingénieurs spécialisés en données sensibles'
+      title: 'Expansion de l&apos;Équipe',
+      description: 'Recrutement d&apos;ingénieurs spécialisés en données sensibles'
     },
     {
       year: '2020',
-      title: 'Service d\'Urgence 24h/24',
-      description: 'Mise en place du service d\'urgence pour situations critiques'
+      title: 'Service d&apos;Urgence 24h/24',
+      description: 'Mise en place du service d&apos;urgence pour situations critiques'
     },
     {
       year: '2024',
@@ -72,7 +72,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-6">
             <h1 className="text-4xl lg:text-5xl font-bold">
-              À Propos d'OISDRIVE
+              À Propos d&apos;OISDRIVE
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {COMPANY_INFO.description}
@@ -100,12 +100,12 @@ export default function AboutPage() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-3xl lg:text-4xl font-bold">
-                  {COMPANY_INFO.experience} Ans d'Expertise Française
+                  {COMPANY_INFO.experience} Ans d&apos;Expertise Française
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Depuis {COMPANY_INFO.founded}, OISDRIVE s'est imposé comme le leader français 
+                  Depuis {COMPANY_INFO.founded}, OISDRIVE s&apos;est imposé comme le leader français 
                   de la récupération de données. Notre laboratoire situé à Blagnac dispose 
-                  des équipements les plus avancés et d'une équipe d'experts certifiés.
+                  des équipements les plus avancés et d&apos;une équipe d&apos;experts certifiés.
                 </p>
               </div>
 
@@ -117,7 +117,7 @@ export default function AboutPage() {
                     <span className="font-semibold">Fondé en {COMPANY_INFO.founded}</span>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    {COMPANY_INFO.experience} années d'expérience
+                    {COMPANY_INFO.experience} années d&apos;expérience
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -177,7 +177,7 @@ export default function AboutPage() {
                 </div>
                 <div className="p-6 bg-background border rounded-lg text-center">
                   <div className="text-3xl font-bold text-primary mb-2">18</div>
-                  <div className="text-sm text-muted-foreground">Années d'expérience</div>
+                  <div className="text-sm text-muted-foreground">Années d&apos;expérience</div>
                 </div>
               </div>
             </div>
@@ -232,7 +232,7 @@ export default function AboutPage() {
               Notre Histoire
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Découvrez les étapes clés qui ont fait d'OISDRIVE le leader français 
+              Découvrez les étapes clés qui ont fait d&apos;OISDRIVE le leader français 
               de la récupération de données.
             </p>
           </div>
@@ -260,7 +260,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold">
-              Notre Équipe d'Experts
+              Notre Équipe d&apos;Experts
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Des professionnels certifiés et expérimentés à votre service
@@ -271,7 +271,7 @@ export default function AboutPage() {
           <div className="mb-12 flex justify-center w-full">
             <Image
               src="/images/about/team.svg"
-              alt="Équipe d'experts OISDRIVE"
+              alt="Équipe d&apos;experts OISDRIVE"
               width={400}
               height={300}
               className="w-full max-w-md h-auto rounded-lg shadow-lg"
@@ -294,7 +294,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="text-sm text-muted-foreground">
-                    {member.experience} d'expérience
+                    {member.experience} d&apos;expérience
                   </div>
                   <div className="space-y-2">
                     <h4 className="font-semibold text-sm">Expertise</h4>
@@ -339,7 +339,7 @@ export default function AboutPage() {
               Prêt à Faire Confiance à Nos Experts ?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Contactez notre équipe d'experts pour une évaluation gratuite de vos besoins 
+              Contactez notre équipe d&apos;experts pour une évaluation gratuite de vos besoins 
               en récupération de données.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

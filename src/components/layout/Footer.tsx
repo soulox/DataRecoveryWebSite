@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
                   href="/case-studies"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Cas d'Études
+                  Cas d&apos;Études
                 </Link>
               </li>
               <li>

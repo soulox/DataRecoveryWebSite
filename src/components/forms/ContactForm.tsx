@@ -30,7 +30,7 @@ export const ContactForm: React.FC = () => {
     { value: 'data-recovery', label: 'Récupération de Données' },
     { value: 'sensitive-data-processing', label: 'Traitement des Données Sensibles' },
     { value: 'large-scale-data-management', label: 'Gestion des Données Volumineuses' },
-    { value: 'emergency-recovery', label: 'Récupération d\'Urgence' },
+    { value: 'emergency-recovery', label: 'Récupération d&apos;Urgence' },
     { value: 'consultation', label: 'Consultation' }
   ]
 

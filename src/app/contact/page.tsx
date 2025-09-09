@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact - OISDRIVE | Expert en Récupération de Données',
-  description: 'Contactez OISDRIVE pour une évaluation gratuite de vos besoins en récupération de données. Service d\'urgence 24h/24 disponible.',
+  description: 'Contactez OISDRIVE pour une évaluation gratuite de vos besoins en récupération de données. Service d&apos;urgence 24h/24 disponible.',
   keywords: ['contact', 'récupération données', 'urgence', 'devis gratuit', 'OISDRIVE'],
 }
 
@@ -21,7 +21,7 @@ export default function ContactPage() {
               Contactez Nos Experts
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Notre équipe d'experts est à votre disposition pour évaluer vos besoins 
+              Notre équipe d&apos;experts est à votre disposition pour évaluer vos besoins 
               et vous proposer la solution la plus adaptée à votre situation.
             </p>
           </div>

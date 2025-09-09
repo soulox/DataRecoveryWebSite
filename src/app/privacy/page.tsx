@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Politique de Confidentialité - OISDRIVE | Protection des Données',
-  description: 'Politique de confidentialité d\'OISDRIVE. Découvrez comment nous protégeons vos données personnelles et respectons le RGPD.',
+  description: 'Politique de confidentialité d&apos;OISDRIVE. Découvrez comment nous protégeons vos données personnelles et respectons le RGPD.',
   keywords: ['politique confidentialité', 'RGPD', 'protection données', 'OISDRIVE', 'données personnelles'],
 }
 
@@ -26,7 +26,7 @@ export default function PrivacyPage() {
               Politique de Confidentialité
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              OISDRIVE s'engage à protéger votre vie privée et vos données personnelles. 
+              OISDRIVE s&apos;engage à protéger votre vie privée et vos données personnelles. 
               Cette politique explique comment nous collectons, utilisons et protégeons vos informations.
             </p>
             <div className="text-sm text-muted-foreground">
@@ -71,7 +71,7 @@ export default function PrivacyPage() {
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Nous vous informons clairement sur l'utilisation de vos données
+                  Nous vous informons clairement sur l&apos;utilisation de vos données
                 </CardDescription>
               </CardContent>
             </Card>
@@ -153,7 +153,7 @@ export default function PrivacyPage() {
                 
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold mb-2">Données d'identification :</h4>
+                    <h4 className="font-semibold mb-2">Données d&apos;identification :</h4>
                     <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground ml-4">
                       <li>Nom et prénom</li>
                       <li>Adresse email</li>
@@ -245,7 +245,7 @@ export default function PrivacyPage() {
                     <div>
                       <h4 className="font-semibold">Exécution du contrat</h4>
                       <p className="text-sm text-muted-foreground">
-                        Traitement nécessaire à l'exécution du contrat de service 
+                        Traitement nécessaire à l&apos;exécution du contrat de service 
                         de récupération de données.
                       </p>
                     </div>
@@ -305,7 +305,7 @@ export default function PrivacyPage() {
                   <div className="p-4 bg-background border rounded-lg">
                     <h4 className="font-semibold mb-2">Données de prospection</h4>
                     <p className="text-sm text-muted-foreground">
-                      3 ans à compter du dernier contact ou jusqu'à votre demande 
+                      3 ans à compter du dernier contact ou jusqu&apos;à votre demande 
                       de suppression.
                     </p>
                   </div>
@@ -347,7 +347,7 @@ export default function PrivacyPage() {
                   <div className="p-4 bg-background border rounded-lg">
                     <h4 className="font-semibold mb-2">Autorités compétentes</h4>
                     <p className="text-sm text-muted-foreground">
-                      En cas d'obligation légale ou de demande des autorités 
+                      En cas d&apos;obligation légale ou de demande des autorités 
                       judiciaires ou administratives.
                     </p>
                   </div>
@@ -417,7 +417,7 @@ export default function PrivacyPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-3">
                     <div className="p-3 bg-background border rounded-lg">
-                      <h4 className="font-semibold text-sm">Droit d'accès</h4>
+                      <h4 className="font-semibold text-sm">Droit d&apos;accès</h4>
                       <p className="text-xs text-muted-foreground">
                         Obtenir une copie de vos données personnelles
                       </p>
@@ -431,7 +431,7 @@ export default function PrivacyPage() {
                     </div>
                     
                     <div className="p-3 bg-background border rounded-lg">
-                      <h4 className="font-semibold text-sm">Droit d'effacement</h4>
+                      <h4 className="font-semibold text-sm">Droit d&apos;effacement</h4>
                       <p className="text-xs text-muted-foreground">
                         Demander la suppression de vos données
                       </p>
@@ -454,7 +454,7 @@ export default function PrivacyPage() {
                     </div>
                     
                     <div className="p-3 bg-background border rounded-lg">
-                      <h4 className="font-semibold text-sm">Droit d'opposition</h4>
+                      <h4 className="font-semibold text-sm">Droit d&apos;opposition</h4>
                       <p className="text-xs text-muted-foreground">
                         Vous opposer au traitement de vos données
                       </p>
@@ -467,7 +467,7 @@ export default function PrivacyPage() {
                     <strong>Pour exercer vos droits :</strong> Contactez-nous à 
                     <a href="mailto:privacy@oisdrive.com" className="text-primary hover:underline ml-1">
                       privacy@oisdrive.com
-                    </a> ou par courrier à notre adresse. Nous vous répondrons dans un délai d'un mois.
+                    </a> ou par courrier à notre adresse. Nous vous répondrons dans un délai d&apos;un mois.
                   </p>
                 </div>
               </CardContent>
@@ -497,7 +497,7 @@ export default function PrivacyPage() {
                   <div className="p-4 bg-background border rounded-lg">
                     <h4 className="font-semibold mb-2">Cookies analytiques (optionnels)</h4>
                     <p className="text-sm text-muted-foreground">
-                      Google Analytics pour analyser l'utilisation du site (avec votre consentement).
+                      Google Analytics pour analyser l&apos;utilisation du site (avec votre consentement).
                     </p>
                   </div>
                   
@@ -555,7 +555,7 @@ export default function PrivacyPage() {
                       Vous pouvez également adresser une réclamation à la CNIL :
                     </p>
                     <div className="text-sm">
-                      <div>CNIL - Commission Nationale de l'Informatique et des Libertés</div>
+                      <div>CNIL - Commission Nationale de l&apos;Informatique et des Libertés</div>
                       <div>3 Place de Fontenoy - TSA 80715</div>
                       <div>75334 PARIS CEDEX 07</div>
                       <div>Site web : <a href="https://www.cnil.fr" className="text-primary hover:underline">www.cnil.fr</a></div>

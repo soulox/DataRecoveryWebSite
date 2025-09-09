@@ -33,7 +33,7 @@ export const HeroSection: React.FC = () => {
                   {COMPANY_INFO.experience}+
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  Années d'expérience
+                  Années d&apos;expérience
                 </div>
               </div>
               <div className="space-y-2">

@@ -17,7 +17,7 @@ export const AboutSection: React.FC = () => {
                 Laboratoire français depuis {COMPANY_INFO.founded}
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold">
-                {COMPANY_INFO.experience} Ans d'Expertise en Récupération de Données
+                {COMPANY_INFO.experience} Ans d&apos;Expertise en Récupération de Données
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {COMPANY_INFO.description}
@@ -32,7 +32,7 @@ export const AboutSection: React.FC = () => {
                   <span className="font-semibold">Fondé en {COMPANY_INFO.founded}</span>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  {COMPANY_INFO.experience} années d'expérience
+                  {COMPANY_INFO.experience} années d&apos;expérience
                 </p>
               </div>
               <div className="space-y-2">
@@ -84,7 +84,7 @@ export const AboutSection: React.FC = () => {
           {/* Team Preview */}
           <div className="space-y-8">
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4">Notre Équipe d'Experts</h3>
+              <h3 className="text-2xl font-bold mb-4">Notre Équipe d&apos;Experts</h3>
               <p className="text-muted-foreground">
                 Des professionnels certifiés à votre service
               </p>
@@ -103,7 +103,7 @@ export const AboutSection: React.FC = () => {
                         <p className="text-sm text-primary font-medium">{member.position}</p>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        {member.experience} d'expérience
+                        {member.experience} d&apos;expérience
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {member.expertise.slice(0, 2).map((skill, index) => (
@@ -124,7 +124,7 @@ export const AboutSection: React.FC = () => {
             <div className="text-center">
               <Button asChild variant="outline">
                 <Link href="/about#team">
-                  Voir Toute l'Équipe
+                  Voir Toute l&apos;Équipe
                 </Link>
               </Button>
             </div>
