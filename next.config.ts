@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     // Enable if needed for Cloudflare compatibility
   },
   
+  // Configure for Cloudflare Pages deployment
+  output: 'standalone',
+  
   // Configure images for Cloudflare
   images: {
     // Use Cloudflare's image optimization

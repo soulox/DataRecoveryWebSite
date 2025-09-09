@@ -1,0 +1,8 @@
+name = "oisdrive-website"
+compatibility_date = "2025-09-09"
+
+# Environment variables should be set in Cloudflare Pages dashboard
+# MAILGUN_API_KEY - Set in Cloudflare Pages environment variables
+# MAILGUN_DOMAIN - Set in Cloudflare Pages environment variables  
+# MAILGUN_FROM_EMAIL - Set in Cloudflare Pages environment variables
+# MAILGUN_URL - Set in Cloudflare Pages environment variables
