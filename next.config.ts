@@ -9,8 +9,8 @@ const nextConfig: NextConfig = {
     // Enable if needed for Cloudflare compatibility
   },
   
-  // Configure for Cloudflare Pages deployment
-  output: 'standalone',
+  // Configure for Cloudflare Pages deployment with Next.js runtime
+  // Remove output: 'standalone' for Cloudflare Pages
   
   // Configure images for Cloudflare
   images: {

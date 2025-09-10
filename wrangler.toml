@@ -1,14 +1,18 @@
 name = "oisdrive-website"
-compatibility_date = "2025-09-09"
+compatibility_date = "2025-01-09"
 
-# Cloudflare Pages configuration
-[assets]
-directory = ".next"
+# Cloudflare Pages configuration for Next.js runtime
+# This configuration is for Cloudflare Pages with Next.js support
 
+# Build configuration
+[build]
+command = "npm run build"
+cwd = "."
 
-# This is for Cloudflare Pages deployment
-# The actual deployment should be done through Cloudflare Pages dashboard
-# or using: npx wrangler pages deploy .next --project-name=oisdrive-website
+# Pages configuration
+[pages]
+# The build output directory for Next.js on Cloudflare Pages
+build_output_dir = ".next"
 
 # Environment variables should be set in Cloudflare Pages dashboard
 # MAILGUN_API_KEY - Set in Cloudflare Pages environment variables
