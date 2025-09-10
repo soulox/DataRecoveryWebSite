@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { sendContactFormEmails } from '@/lib/email'
 
+// Configure for Edge Runtime (required for Cloudflare Pages)
+export const runtime = 'edge'
+
 // Validation schema for contact form
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Le nom doit contenir au moins 2 caractères'),

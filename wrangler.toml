@@ -1,4 +1,4 @@
-name = "oisdrive-website"
+name = 'datarecoverysebsite'
 compatibility_date = "2025-01-09"
 
 # Cloudflare Pages configuration for Next.js runtime
@@ -12,7 +12,7 @@ cwd = "."
 # Pages configuration
 [pages]
 # The build output directory for Next.js on Cloudflare Pages
-build_output_dir = ".next"
+pages_build_output_dir = ".next"
 
 # Environment variables should be set in Cloudflare Pages dashboard
 # MAILGUN_API_KEY - Set in Cloudflare Pages environment variables
