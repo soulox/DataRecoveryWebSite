@@ -1,6 +1,5 @@
 name = 'datarecoverysebsite'
 compatibility_date = "2025-01-09"
-compatibility_flags = ["nodejs_compat"]
 
 # Cloudflare Pages configuration for Next.js runtime
 # This configuration is for Cloudflare Pages with Next.js support

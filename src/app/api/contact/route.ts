@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { sendContactFormEmails } from '@/lib/email'
+import { sendContactFormEmailsEdge } from '@/lib/email-edge'
 
-// Configure for Node.js runtime with compatibility flag for Cloudflare Pages
-export const runtime = 'nodejs'
+// Configure for Edge Runtime (required for Cloudflare Pages)
+export const runtime = 'edge'
 
 // Validation schema for contact form
 const contactFormSchema = z.object({
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     })
     
     // Send emails (admin notification + user confirmation)
-    const emailResult = await sendContactFormEmails(validatedData)
+    const emailResult = await sendContactFormEmailsEdge(validatedData)
     
     if (!emailResult.success) {
       console.error('Email sending failed:', emailResult.message)
