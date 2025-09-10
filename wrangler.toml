@@ -1,6 +1,9 @@
 name = "oisdrive-website"
 compatibility_date = "2025-09-09"
 
+[assets]
+directory = "./dist"
+
 # This is for Cloudflare Pages deployment
 # The actual deployment should be done through Cloudflare Pages dashboard
 # or using: npx wrangler pages deploy .next --project-name=oisdrive-website
