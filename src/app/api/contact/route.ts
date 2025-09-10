@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { sendContactFormEmails } from '@/lib/email'
 
-// Configure for Edge Runtime (required for Cloudflare Pages)
-export const runtime = 'edge'
+// Configure for Node.js runtime with compatibility flag for Cloudflare Pages
+export const runtime = 'nodejs'
 
 // Validation schema for contact form
 const contactFormSchema = z.object({
