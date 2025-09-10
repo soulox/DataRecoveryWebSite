@@ -1,8 +1,10 @@
 name = "oisdrive-website"
 compatibility_date = "2025-09-09"
 
+# Cloudflare Pages configuration
 [assets]
-directory = "./dist"
+directory = ".next"
+
 
 # This is for Cloudflare Pages deployment
 # The actual deployment should be done through Cloudflare Pages dashboard
