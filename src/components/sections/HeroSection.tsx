@@ -43,7 +43,7 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">24h/24</div>
+                <div className="text-3xl font-bold text-primary">7j/7</div>
                 <div className="text-sm text-muted-foreground">
                   Service d&apos;urgence
                 </div>
@@ -75,7 +75,7 @@ export const HeroSection: React.FC = () => {
               <Phone className="h-6 w-6 text-destructive" />
               <div>
                 <div className="font-semibold text-destructive">
-                  Urgence 24h/24
+                  Urgence
                 </div>
                 <a
                   href={`tel:${COMPANY_INFO.emergencyPhone}`}

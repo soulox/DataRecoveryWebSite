@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact - OISDRIVE | Expert en Récupération de Données',
-  description: 'Contactez OISDRIVE pour une évaluation gratuite de vos besoins en récupération de données. Service d&apos;urgence 24h/24 disponible.',
+  description: 'Contactez OISDRIVE pour une évaluation gratuite de vos besoins en récupération de données. Service d&apos;urgence disponible.',
   keywords: ['contact', 'récupération données', 'urgence', 'devis gratuit', 'OISDRIVE'],
 }
 
@@ -34,7 +34,7 @@ export default function ContactPage() {
           <div className="flex items-center justify-center space-x-4">
             <AlertTriangle className="h-6 w-6 text-destructive" />
             <div className="text-center">
-              <span className="font-semibold text-destructive">URGENCE 24h/24 : </span>
+              <span className="font-semibold text-destructive">URGENCE : </span>
               <a
                 href={`tel:${COMPANY_INFO.emergencyPhone}`}
                 className="text-xl font-bold text-destructive hover:underline"
@@ -122,7 +122,7 @@ export default function ContactPage() {
                       <h4 className="font-semibold">Horaires</h4>
                       <div className="text-muted-foreground space-y-1">
                         <p>Lundi - Vendredi : 9h00 - 18h00</p>
-                        <p>Urgences : 24h/24, 7j/7</p>
+                        <p>Urgences</p>
                       </div>
                     </div>
                   </div>
@@ -156,7 +156,7 @@ export default function ContactPage() {
               <div className="p-6 bg-destructive/5 border border-destructive/20 rounded-lg">
                 <h4 className="font-semibold text-destructive mb-3 flex items-center">
                   <AlertTriangle className="h-5 w-5 mr-2" />
-                  Urgence 24h/24
+                  Urgence
                 </h4>
                 <p className="text-sm text-muted-foreground mb-3">
                   Pour les situations critiques nécessitant une intervention immédiate

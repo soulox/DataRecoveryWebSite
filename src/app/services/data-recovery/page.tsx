@@ -76,7 +76,7 @@ export default function DataRecoveryPage() {
                 </Button>
                 <Button asChild variant="outline" size="lg">
                   <Link href="/contact">
-                    Urgence 24h/24
+                    Urgence
                   </Link>
                 </Button>
               </div>
@@ -110,7 +110,7 @@ export default function DataRecoveryPage() {
                     <div className="text-sm text-muted-foreground">À partir de</div>
                   </div>
                   <div className="p-4 bg-background border rounded-lg">
-                    <div className="text-2xl font-bold text-primary">24h/24</div>
+                    <div className="text-2xl font-bold text-primary">7j/7</div>
                     <div className="text-sm text-muted-foreground">Disponibilité</div>
                   </div>
                 </div>
@@ -189,7 +189,7 @@ export default function DataRecoveryPage() {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2 text-destructive">
                 <AlertTriangle className="h-6 w-6" />
-                <span>Service d&apos;Urgence 24h/24</span>
+                <span>Service d&apos;Urgence</span>
               </CardTitle>
               <CardDescription>
                 Pour les situations critiques nécessitant une intervention immédiate
@@ -231,7 +231,7 @@ export default function DataRecoveryPage() {
                     </li>
                     <li className="flex items-center space-x-2">
                       <Shield className="h-4 w-4 text-primary" />
-                      <span>Intervention 24h/24</span>
+                      <span>Intervention</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <Shield className="h-4 w-4 text-primary" />

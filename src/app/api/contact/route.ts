@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { sendContactFormEmailsEdge } from '@/lib/email-edge'
+import { validateFiles } from '@/lib/file-storage'
 
 // Configure for Edge Runtime (required for Cloudflare Pages)
 export const runtime = 'edge'
@@ -14,15 +15,63 @@ const contactFormSchema = z.object({
   serviceType: z.enum(['data-recovery', 'sensitive-data-processing', 'large-scale-data-management', 'emergency-recovery', 'consultation']),
   urgency: z.enum(['low', 'medium', 'high', 'emergency']),
   description: z.string().min(10, 'La description doit contenir au moins 10 caractères'),
-  files: z.array(z.string()).optional() // File names only, actual files would be handled separately
+  files: z.array(z.string()).optional() // File IDs after upload
 })
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
+    const contentType = request.headers.get('content-type')
+    
+    let formData: Record<string, unknown>
+    let uploadedFiles: string[] = []
+    
+    if (contentType?.includes('multipart/form-data')) {
+      // Handle FormData with file uploads
+      const form = await request.formData()
+      
+      // Extract form fields
+      formData = {
+        name: form.get('name') as string,
+        email: form.get('email') as string,
+        phone: form.get('phone') as string,
+        company: form.get('company') as string || undefined,
+        serviceType: form.get('serviceType') as string,
+        urgency: form.get('urgency') as string,
+        description: form.get('description') as string,
+      }
+      
+      // Handle file uploads
+      const files = form.getAll('files') as File[]
+      if (files.length > 0) {
+        // Validate files
+        const validation = validateFiles(files)
+        if (!validation.valid) {
+          return NextResponse.json({
+            success: false,
+            message: validation.error || 'Erreur lors de la validation des fichiers'
+          }, { status: 400 })
+        }
+        
+        // In Edge Runtime, we can't save files to local storage
+        // For now, we'll just log the file information and include file names in the email
+        const submissionId = `contact-${Date.now()}`
+        uploadedFiles = files.map((file, index) => `${submissionId}-${index}-${file.name}`)
+        
+        console.log('Files received (not stored in Edge Runtime):', {
+          count: files.length,
+          files: files.map(f => ({ name: f.name, size: f.size, type: f.type }))
+        })
+      }
+    } else {
+      // Handle JSON data (fallback)
+      formData = await request.json()
+    }
+    
+    // Add uploaded file IDs to form data
+    formData.files = uploadedFiles
     
     // Validate the form data
-    const validatedData = contactFormSchema.parse(body)
+    const validatedData = contactFormSchema.parse(formData)
     
     // Log the submission
     console.log('Contact form submission:', {
@@ -50,7 +99,8 @@ export async function POST(request: NextRequest) {
       message: 'Votre demande a été envoyée avec succès. Notre équipe vous contactera dans les plus brefs délais.',
       data: {
         id: `contact-${Date.now()}`,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        files: uploadedFiles
       }
     })
     

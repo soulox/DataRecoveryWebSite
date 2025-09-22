@@ -121,7 +121,7 @@ export default function LargeScaleDataManagementPage() {
     },
     {
       title: 'Disponibilité',
-      description: 'Support technique 24h/24 pour les infrastructures critiques',
+      description: 'Support technique pour les infrastructures critiques',
       stats: '99.9% de disponibilité'
     },
     {
@@ -191,7 +191,7 @@ export default function LargeScaleDataManagementPage() {
                     <div className="text-sm text-muted-foreground">Disponibilité</div>
                   </div>
                   <div className="p-4 bg-background border rounded-lg">
-                    <div className="text-2xl font-bold text-primary">24h/24</div>
+                    <div className="text-2xl font-bold text-primary">7j/7</div>
                     <div className="text-sm text-muted-foreground">Support</div>
                   </div>
                 </div>

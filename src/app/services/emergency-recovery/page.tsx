@@ -7,8 +7,8 @@ import { CheckCircle, AlertTriangle, Clock, Phone, Shield, Zap, Users } from 'lu
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Récupération d&apos;Urgence 24h/24 - OISDRIVE | Service d&apos;Urgence',
-  description: 'Service d&apos;urgence 24h/24 pour la récupération de données critiques. Intervention immédiate, délai de réponse &lt; 2h. OISDRIVE, votre partenaire de confiance.',
+  title: 'Récupération d&apos;Urgence - OISDRIVE | Service d&apos;Urgence',
+  description: 'Service d&apos;urgence pour la récupération de données critiques. Intervention immédiate, délai de réponse &lt; 2h. OISDRIVE, votre partenaire de confiance.',
   keywords: ['urgence données', 'récupération 24h', 'service d&apos;urgence', 'données critiques', 'intervention immédiate', 'OISDRIVE'],
 }
 
@@ -54,16 +54,16 @@ export default function EmergencyRecoveryPage() {
       price: 'Sur devis'
     },
     {
-      title: 'Support 24h/24',
+      title: 'Support',
       description: 'Disponibilité permanente pour situations critiques',
       features: [
         'Hotline dédiée',
         'Ingénieurs de garde',
-        'Accès laboratoire 24h/24',
+        'Accès laboratoire',
         'Coordination équipe'
       ],
       icon: <Phone className="h-8 w-8" />,
-      timeframe: '24h/24',
+      timeframe: '7j/7',
       price: 'Inclus'
     },
     {
@@ -84,7 +84,7 @@ export default function EmergencyRecoveryPage() {
   const processSteps = [
     {
       title: 'Appel d&apos;Urgence',
-      description: 'Contact immédiat avec notre équipe d&apos;urgence 24h/24.',
+      description: 'Contact immédiat avec notre équipe d&apos;urgence.',
       duration: 'Immédiat',
       icon: <Phone className="h-6 w-6" />
     },
@@ -116,13 +116,13 @@ export default function EmergencyRecoveryPage() {
     },
     {
       title: 'Équipe d&apos;Experts',
-      description: 'Ingénieurs spécialisés disponibles 24h/24',
+      description: 'Ingénieurs spécialisés disponibles',
       stats: '15+ experts'
     },
     {
-      title: 'Laboratoire 24h/24',
+      title: 'Laboratoire',
       description: 'Accès permanent à nos équipements de pointe',
-      stats: '24h/24'
+      stats: '7j/7'
     },
     {
       title: 'Taux de Réussite',
@@ -143,11 +143,11 @@ export default function EmergencyRecoveryPage() {
                 Service d&apos;Urgence
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold">
-                Récupération d&apos;Urgence 24h/24
+                Récupération d'Urgence
               </h1>
               <p className="text-xl text-muted-foreground">
                 Service d&apos;urgence pour situations critiques nécessitant une intervention immédiate. 
-                Notre équipe d&apos;experts est disponible 24h/24 pour sauver vos données les plus précieuses.
+                Notre équipe d&apos;experts est disponible pour sauver vos données les plus précieuses.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" variant="destructive">
@@ -168,7 +168,7 @@ export default function EmergencyRecoveryPage() {
               <div className="mb-6 w-full">
                 <Image
                   src="/images/services/emergency.svg"
-                  alt="Service d&apos;urgence 24h/24 - OISDRIVE"
+                  alt="Service d&apos;urgence - OISDRIVE"
                   width={400}
                   height={300}
                   className="w-full h-auto rounded-lg shadow-lg"
@@ -182,7 +182,7 @@ export default function EmergencyRecoveryPage() {
                     <div className="text-sm text-muted-foreground">Délai de réponse</div>
                   </div>
                   <div className="p-4 bg-background border rounded-lg border-destructive/20">
-                    <div className="text-2xl font-bold text-destructive">24h/24</div>
+                    <div className="text-2xl font-bold text-destructive">7j/7</div>
                     <div className="text-sm text-muted-foreground">Disponibilité</div>
                   </div>
                 </div>
@@ -365,10 +365,10 @@ export default function EmergencyRecoveryPage() {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2 text-destructive text-2xl">
                 <Phone className="h-8 w-8" />
-                <span>Contact d&apos;Urgence 24h/24</span>
+                <span>Contact d&apos;Urgence</span>
               </CardTitle>
               <CardDescription className="text-lg">
-                En cas d&apos;urgence, contactez-nous immédiatement. Notre équipe est disponible 24h/24.
+                En cas d&apos;urgence, contactez-nous immédiatement. Notre équipe est disponible.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
@@ -431,7 +431,7 @@ export default function EmergencyRecoveryPage() {
                       </li>
                       <li className="flex items-center space-x-2">
                         <Shield className="h-4 w-4 text-primary" />
-                        <span>Intervention 24h/24</span>
+                        <span>Intervention</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <Shield className="h-4 w-4 text-primary" />
@@ -484,7 +484,7 @@ export default function EmergencyRecoveryPage() {
               Ne Perdez Plus Jamais Vos Données
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              En cas d&apos;urgence, chaque minute compte. Notre service d&apos;urgence 24h/24 
+              En cas d&apos;urgence, chaque minute compte. Notre service d&apos;urgence 
               est là pour vous aider à récupérer vos données les plus critiques.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

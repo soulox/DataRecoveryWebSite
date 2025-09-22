@@ -73,11 +73,11 @@ export const ServicesSection: React.FC = () => {
         <div className="mt-16 p-8 bg-destructive/5 border border-destructive/20 rounded-lg">
           <div className="text-center space-y-4">
             <h3 className="text-2xl font-bold text-destructive">
-              🚨 Service d&apos;Urgence 24h/24
+              🚨 Service d&apos;Urgence
             </h3>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               En cas de perte de données critique, notre équipe d&apos;experts est disponible 
-              24h/24 pour une intervention immédiate. Délai de réponse garanti : moins de 2 heures.
+              pour une intervention immédiate. Délai de réponse garanti : moins de 2 heures.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="destructive">

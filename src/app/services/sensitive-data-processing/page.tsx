@@ -156,7 +156,7 @@ export default function SensitiveDataProcessingPage() {
                     <div className="text-sm text-muted-foreground">Chiffrement</div>
                   </div>
                   <div className="p-4 bg-background border rounded-lg">
-                    <div className="text-2xl font-bold text-primary">24h/24</div>
+                    <div className="text-2xl font-bold text-primary">7j/7</div>
                     <div className="text-sm text-muted-foreground">Surveillance</div>
                   </div>
                 </div>

@@ -32,7 +32,7 @@ export default function AboutPage() {
     },
     {
       year: '2020',
-      title: 'Service d&apos;Urgence 24h/24',
+      title: 'Service d&apos;Urgence',
       description: 'Mise en place du service d&apos;urgence pour situations critiques'
     },
     {
@@ -61,7 +61,7 @@ export default function AboutPage() {
     {
       icon: Clock,
       title: 'Réactivité',
-      description: 'Intervention rapide avec service d\'urgence disponible 24h/24'
+      description: 'Intervention rapide avec service d\'urgence disponible'
     }
   ]
 
@@ -172,7 +172,7 @@ export default function AboutPage() {
                   <div className="text-sm text-muted-foreground">Clients satisfaits</div>
                 </div>
                 <div className="p-6 bg-background border rounded-lg text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">24h/24</div>
+                  <div className="text-3xl font-bold text-primary mb-2">7j/7</div>
                   <div className="text-sm text-muted-foreground">Service d&apos;urgence</div>
                 </div>
                 <div className="p-6 bg-background border rounded-lg text-center">

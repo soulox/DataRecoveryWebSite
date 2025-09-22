@@ -510,9 +510,21 @@ export default function PrivacyPage() {
                 </div>
                 
                 <p className="text-sm text-muted-foreground">
-                  Vous pouvez gérer vos préférences de cookies via les paramètres de votre navigateur 
-                  ou notre bannière de consentement.
+                  Vous pouvez gérer vos préférences de cookies via notre bannière de consentement 
+                  qui apparaît lors de votre première visite, ou en cliquant sur "Gestion des Cookies" 
+                  dans le pied de page. Vous pouvez également modifier vos préférences à tout moment 
+                  via les paramètres de votre navigateur.
                 </p>
+                
+                <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg mt-4">
+                  <h4 className="font-semibold mb-2">Gestion de vos Préférences</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Notre bannière de consentement vous permet de choisir précisément quels types 
+                    de cookies vous souhaitez accepter. Vous pouvez modifier vos préférences à tout 
+                    moment en cliquant sur le lien "Gestion des Cookies" présent dans le pied de page 
+                    de notre site.
+                  </p>
+                </div>
               </CardContent>
             </Card>
 

@@ -31,7 +31,7 @@ OISDRIVE assure la récupération des données, le traitement des données sensi
 - Performance optimisée (Core Web Vitals)
 - Formulaire de contact avec validation
 - Navigation avec menu déroulant
-- Service d'urgence 24h/24 mis en avant
+- Service d'urgence mis en avant
 
 ## 🚀 Installation et Démarrage
 

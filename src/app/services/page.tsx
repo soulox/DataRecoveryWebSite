@@ -34,7 +34,7 @@ export default function ServicesPage() {
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="/contact">
-                  Urgence 24h/24
+                  Urgence
                 </Link>
               </Button>
             </div>
@@ -160,7 +160,7 @@ export default function ServicesPage() {
                 </div>
               </div>
               <div className="space-y-2">
-                <h3 className="text-lg font-semibold">Disponibilité 24h/24</h3>
+                <h3 className="text-lg font-semibold">Disponibilité</h3>
                 <p className="text-sm text-muted-foreground">
                   Service d&apos;urgence pour situations critiques
                 </p>

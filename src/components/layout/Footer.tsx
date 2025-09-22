@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { COMPANY_INFO } from '@/lib/constants'
+import { CookiePreferences } from '@/components/gdpr/CookiePreferences'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 
 export const Footer: React.FC = () => {
@@ -23,7 +24,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Clock className="h-4 w-4" />
-              <span>Ouvert 24h/24 pour les urgences</span>
+              <span>Ouvert pour les urgences</span>
             </div>
           </div>
 
@@ -60,7 +61,7 @@ export const Footer: React.FC = () => {
                   href="/services/emergency-recovery"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Urgences 24h/24
+                  Urgences
                 </Link>
               </li>
             </ul>
@@ -148,6 +149,13 @@ export const Footer: React.FC = () => {
               >
                 Politique de Confidentialité
               </Link>
+              <CookiePreferences 
+                trigger={
+                  <span className="hover:text-foreground transition-colors cursor-pointer">
+                    Gestion des Cookies
+                  </span>
+                }
+              />
             </div>
           </div>
         </div>

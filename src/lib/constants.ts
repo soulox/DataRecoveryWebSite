@@ -68,9 +68,9 @@ export const SERVICES = [
   {
     id: 'emergency-recovery',
     title: 'Récupération d\'Urgence',
-    description: 'Service d\'urgence 24h/24 pour les situations critiques nécessitant une intervention immédiate.',
+    description: 'Service d\'urgence pour les situations critiques nécessitant une intervention immédiate.',
     features: [
-      'Intervention 24h/24',
+      'Intervention',
       'Délai de réponse &lt; 2h',
       'Équipe d\'experts mobilisée',
       'Solutions temporaires',
@@ -183,7 +183,7 @@ export const TEAM_MEMBERS = [
 
 export const SEO_DEFAULT = {
   title: 'OISDRIVE - Expert en Récupération de Données | Laboratoire Français',
-  description: 'OISDRIVE, laboratoire français expert en récupération de données depuis 18 ans. Solutions fiables pour restaurer vos données en cas de panne ou sinistre. Intervention 24h/24.',
+  description: 'OISDRIVE, laboratoire français expert en récupération de données depuis 18 ans. Solutions fiables pour restaurer vos données en cas de panne ou sinistre. Intervention disponible.',
   keywords: [
     'récupération données',
     'laboratoire français',

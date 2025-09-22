@@ -30,7 +30,7 @@ export const ContactSection: React.FC = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2 text-destructive">
                     <AlertTriangle className="h-5 w-5" />
-                    <span>Urgence 24h/24</span>
+                    <span>Urgence</span>
                   </CardTitle>
                   <CardDescription>
                     Pour les situations critiques nécessitant une intervention immédiate
@@ -102,7 +102,7 @@ export const ContactSection: React.FC = () => {
                     <h4 className="font-semibold">Horaires</h4>
                     <div className="text-muted-foreground space-y-1">
                       <p>Lundi - Vendredi : 9h00 - 18h00</p>
-                      <p>Urgences : 24h/24, 7j/7</p>
+                      <p>Urgences</p>
                     </div>
                   </div>
                 </div>

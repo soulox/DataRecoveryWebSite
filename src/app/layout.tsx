@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+import { CookieConsentBanner } from "@/components/gdpr/CookieConsentBanner";
+import { AnalyticsProvider } from "@/components/gdpr/AnalyticsProvider";
 import { COMPANY_INFO, SEO_DEFAULT } from "@/lib/constants";
 
 const inter = Inter({ 
@@ -63,11 +65,14 @@ export default function RootLayout({
   return (
     <html lang="fr" className={inter.variable}>
       <body className="min-h-screen bg-background font-sans antialiased">
-        <div className="relative flex min-h-screen flex-col">
-          <Navigation />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        <AnalyticsProvider>
+          <div className="relative flex min-h-screen flex-col">
+            <Navigation />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <CookieConsentBanner />
+          </div>
+        </AnalyticsProvider>
       </body>
     </html>
   );

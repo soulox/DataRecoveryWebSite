@@ -157,7 +157,7 @@ export default function CaseStudiesPage() {
             </div>
 
             <div className="text-center space-y-4 p-6 bg-background rounded-lg border shadow-sm">
-              <div className="text-4xl font-bold text-primary">24h/24</div>
+              <div className="text-4xl font-bold text-primary">7j/7</div>
               <div className="text-lg font-semibold">Service d&apos;Urgence</div>
               <div className="text-sm text-muted-foreground">
                 Disponibilité pour situations critiques

@@ -1,13 +1,15 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { CheckCircle, AlertCircle, Upload, X } from 'lucide-react'
+import { CheckCircle, AlertCircle, Upload, X, FileText } from 'lucide-react'
+import { trackContactFormSubmission } from '@/lib/analytics'
+import { validateFiles } from '@/lib/file-storage'
 import type { ContactFormData, ServiceType, UrgencyLevel } from '@/types'
 
 export const ContactForm: React.FC = () => {
@@ -25,6 +27,9 @@ export const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errors, setErrors] = useState<Partial<ContactFormData>>({})
+  const [fileError, setFileError] = useState<string | undefined>(undefined)
+  const [isDragOver, setIsDragOver] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const serviceTypes: { value: ServiceType; label: string }[] = [
     { value: 'data-recovery', label: 'Récupération de Données' },
@@ -48,9 +53,22 @@ export const ContactForm: React.FC = () => {
     }
   }
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(event.target.files || [])
+  const handleFileUpload = (files: File[]) => {
+    const validation = validateFiles(files)
+    if (!validation.valid) {
+      setFileError(validation.error)
+      return
+    }
+    
     setFormData(prev => ({ ...prev, files: [...(prev.files || []), ...files] }))
+    if (fileError) {
+      setFileError(undefined)
+    }
+  }
+
+  const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(event.target.files || [])
+    handleFileUpload(files)
   }
 
   const removeFile = (index: number) => {
@@ -58,6 +76,33 @@ export const ContactForm: React.FC = () => {
       ...prev,
       files: prev.files?.filter((_, i) => i !== index) || []
     }))
+  }
+
+  // Drag and drop handlers
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragOver(true)
+  }, [])
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragOver(false)
+  }, [])
+
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragOver(false)
+    
+    const files = Array.from(e.dataTransfer.files)
+    handleFileUpload(files)
+  }, [handleFileUpload])
+
+  const formatFileSize = (bytes: number): string => {
+    if (bytes === 0) return '0 Bytes'
+    const k = 1024
+    const sizes = ['Bytes', 'KB', 'MB', 'GB']
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
   }
 
   const validateForm = (): boolean => {
@@ -98,22 +143,39 @@ export const ContactForm: React.FC = () => {
     setSubmitStatus('idle')
 
     try {
+      // Create FormData for file uploads
+      const formDataToSend = new FormData()
+      formDataToSend.append('name', formData.name)
+      formDataToSend.append('email', formData.email)
+      formDataToSend.append('phone', formData.phone)
+      if (formData.company) {
+        formDataToSend.append('company', formData.company)
+      }
+      formDataToSend.append('serviceType', formData.serviceType)
+      formDataToSend.append('urgency', formData.urgency)
+      formDataToSend.append('description', formData.description)
+      
+      // Add files to FormData
+      if (formData.files && formData.files.length > 0) {
+        formData.files.forEach(file => {
+          formDataToSend.append('files', file)
+        })
+      }
+
       // Send form data to API
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          files: formData.files?.map(file => file.name) || []
-        }),
+        body: formDataToSend, // No Content-Type header needed for FormData
       })
 
       const result = await response.json()
 
       if (result.success) {
         setSubmitStatus('success')
+        
+        // Track form submission with analytics
+        trackContactFormSubmission(formData.serviceType, formData.urgency)
+        
         setFormData({
           name: '',
           email: '',
@@ -308,9 +370,18 @@ export const ContactForm: React.FC = () => {
           {/* File Upload */}
           <div className="space-y-2">
             <Label htmlFor="files">Fichiers joints (optionnel)</Label>
-            <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-6">
+            <div 
+              className={`border-2 border-dashed rounded-lg p-6 transition-colors ${
+                isDragOver 
+                  ? 'border-primary bg-primary/5' 
+                  : 'border-muted-foreground/25 hover:border-muted-foreground/50'
+              }`}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+              onDrop={handleDrop}
+            >
               <div className="text-center space-y-4">
-                <Upload className="h-8 w-8 mx-auto text-muted-foreground" />
+                <Upload className={`h-8 w-8 mx-auto ${isDragOver ? 'text-primary' : 'text-muted-foreground'}`} />
                 <div>
                   <Label htmlFor="file-upload" className="cursor-pointer">
                     <span className="text-primary hover:underline">
@@ -319,34 +390,57 @@ export const ContactForm: React.FC = () => {
                     <span className="text-muted-foreground"> ou glissez-déposez vos fichiers</span>
                   </Label>
                   <input
+                    ref={fileInputRef}
                     id="file-upload"
                     type="file"
                     multiple
-                    onChange={handleFileUpload}
+                    onChange={handleFileInputChange}
                     className="hidden"
                     accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.txt"
                     aria-label="Télécharger des fichiers"
                   />
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Formats acceptés : JPG, PNG, PDF, DOC, DOCX, TXT (max 10MB par fichier)
+                  Formats acceptés : JPG, PNG, PDF, DOC, DOCX, TXT (max 10MB par fichier, 5 fichiers max)
                 </p>
+                {isDragOver && (
+                  <p className="text-sm text-primary font-medium">
+                    Relâchez pour ajouter les fichiers
+                  </p>
+                )}
               </div>
             </div>
+
+            {/* File validation error */}
+            {fileError && (
+              <div className="flex items-center space-x-2 text-destructive text-sm">
+                <AlertCircle className="h-4 w-4" />
+                <span>{fileError}</span>
+              </div>
+            )}
 
             {/* Uploaded Files */}
             {formData.files && formData.files.length > 0 && (
               <div className="space-y-2">
-                <p className="text-sm font-medium">Fichiers sélectionnés :</p>
+                <p className="text-sm font-medium">Fichiers sélectionnés ({formData.files.length}) :</p>
                 <div className="space-y-2">
                   {formData.files.map((file, index) => (
-                    <div key={index} className="flex items-center justify-between p-2 bg-muted rounded">
-                      <span className="text-sm">{file.name}</span>
+                    <div key={index} className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                      <div className="flex items-center space-x-3">
+                        <FileText className="h-4 w-4 text-muted-foreground" />
+                        <div>
+                          <span className="text-sm font-medium">{file.name}</span>
+                          <p className="text-xs text-muted-foreground">
+                            {formatFileSize(file.size)}
+                          </p>
+                        </div>
+                      </div>
                       <Button
                         type="button"
                         variant="ghost"
                         size="sm"
                         onClick={() => removeFile(index)}
+                        aria-label={`Supprimer ${file.name}`}
                       >
                         <X className="h-4 w-4" />
                       </Button>
@@ -387,3 +481,4 @@ export const ContactForm: React.FC = () => {
     </Card>
   )
 }
+

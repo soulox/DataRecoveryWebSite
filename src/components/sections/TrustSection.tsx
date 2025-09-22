@@ -24,7 +24,7 @@ export const TrustSection: React.FC = () => {
     },
     {
       icon: Clock,
-      title: 'Disponibilité 24h/24',
+      title: 'Disponibilité',
       description: 'Service d\'urgence pour situations critiques',
       highlight: 'Intervention immédiate'
     }

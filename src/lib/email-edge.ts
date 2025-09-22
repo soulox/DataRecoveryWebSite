@@ -89,9 +89,26 @@ export function generateContactEmailTemplates(data: ContactFormData): {
           
           ${data.files && data.files.length > 0 ? `
           <h3 style="color: #1e40af; margin-top: 20px;">Fichiers Joints</h3>
-          <ul style="background: white; padding: 15px; margin: 10px 0;">
-            ${data.files.map(file => `<li>${file}</li>`).join('')}
-          </ul>
+          <div style="background: white; padding: 15px; margin: 10px 0; border-radius: 5px;">
+            <p style="color: #666; font-size: 14px; margin-bottom: 10px;">
+              <strong>Note:</strong> Les fichiers ont été reçus mais ne sont pas encore stockés en raison des limitations de l'environnement Edge Runtime. 
+              Pour une implémentation complète, une intégration avec un service de stockage cloud (AWS S3, Google Cloud Storage) est nécessaire.
+            </p>
+            ${data.files.map(fileId => {
+              // Extract filename from the fileId (format: contact-timestamp-index-filename)
+              const filename = fileId.split('-').slice(3).join('-')
+              return `
+                <div style="margin-bottom: 10px; padding: 10px; background: #f8f9fa; border-radius: 3px;">
+                  <span style="color: #1e40af; font-weight: bold;">
+                    📎 ${filename}
+                  </span>
+                  <span style="color: #666; font-size: 12px; margin-left: 10px;">
+                    (Fichier reçu - stockage cloud requis)
+                  </span>
+                </div>
+              `
+            }).join('')}
+          </div>
           ` : ''}
           
           <div style="margin-top: 20px; padding: 15px; background: ${data.urgency === 'emergency' ? '#fef2f2' : '#f0f9ff'}; border: 1px solid ${data.urgency === 'emergency' ? '#fecaca' : '#bae6fd'}; border-radius: 5px;">
@@ -121,7 +138,14 @@ ${data.company ? `- Entreprise: ${data.company}` : ''}
 Description:
 ${data.description}
 
-${data.files && data.files.length > 0 ? `Fichiers joints: ${data.files.join(', ')}` : ''}
+${data.files && data.files.length > 0 ? `
+Fichiers joints:
+Note: Les fichiers ont été reçus mais ne sont pas encore stockés en raison des limitations de l'environnement Edge Runtime.
+${data.files.map(fileId => {
+  const filename = fileId.split('-').slice(3).join('-')
+  return `- ${filename} (Fichier reçu - stockage cloud requis)`
+}).join('\n')}
+` : ''}
 
 ${data.urgency === 'emergency' ? '🚨 URGENCE CRITIQUE - Réponse immédiate requise' : 'Action requise - Répondre dans les 24h'}
 
