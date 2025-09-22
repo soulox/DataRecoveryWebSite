@@ -1,6 +1,6 @@
 // File storage utilities for OISDRIVE contact form attachments
-// Note: This is a simplified version for Edge Runtime compatibility
-// In production, consider using cloud storage (AWS S3, Google Cloud Storage, etc.)
+// This file provides a unified interface for both local and cloud storage
+// In production, cloud storage is used via cloud-storage.ts
 
 export interface UploadedFile {
   id: string
@@ -109,17 +109,33 @@ export function validateFiles(files: File[]): { valid: boolean; error?: string }
   return { valid: true }
 }
 
-// Save uploaded file (Edge Runtime compatible)
+// Save uploaded file (with cloud storage support)
 export async function saveUploadedFile(file: File, submissionId: string): Promise<UploadedFile> {
+  // Check if cloud storage is configured
+  if (process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY && process.env.AWS_S3_BUCKET) {
+    try {
+      // Use cloud storage
+      const { uploadToS3 } = await import('./cloud-storage')
+      const cloudFile = await uploadToS3(file, submissionId)
+      
+      return {
+        id: cloudFile.id,
+        originalName: cloudFile.originalName,
+        filename: cloudFile.key.split('/').pop() || cloudFile.key,
+        size: cloudFile.size,
+        mimeType: cloudFile.mimeType,
+        uploadedAt: cloudFile.uploadedAt,
+        path: cloudFile.url || cloudFile.signedUrl || cloudFile.key
+      }
+    } catch (error) {
+      console.error('Cloud storage upload failed, falling back to local storage:', error)
+      // Fall through to local storage fallback
+    }
+  }
+  
+  // Fallback to local storage (Edge Runtime compatible)
   const filename = generateUniqueFilename(file.name)
   const fileId = `${submissionId}-${filename}`
-  
-  // In Edge Runtime, we can't write to filesystem
-  // This is a placeholder implementation
-  // In production, you would:
-  // 1. Upload to cloud storage (AWS S3, Google Cloud Storage, etc.)
-  // 2. Store metadata in a database
-  // 3. Return the cloud storage URL
   
   return {
     id: fileId,
@@ -128,11 +144,11 @@ export async function saveUploadedFile(file: File, submissionId: string): Promis
     size: file.size,
     mimeType: file.type,
     uploadedAt: new Date(),
-    path: `cloud-storage://${fileId}` // Placeholder for cloud storage path
+    path: `local-storage://${fileId}` // Placeholder for local storage
   }
 }
 
-// Save multiple files (Edge Runtime compatible)
+// Save multiple files (with cloud storage support)
 export async function saveUploadedFiles(files: File[], submissionId: string): Promise<FileUploadResult> {
   try {
     const validation = validateFiles(files)
@@ -143,6 +159,41 @@ export async function saveUploadedFiles(files: File[], submissionId: string): Pr
       }
     }
 
+    // Check if cloud storage is configured
+    if (process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY && process.env.AWS_S3_BUCKET) {
+      try {
+        // Use cloud storage for multiple files
+        const { uploadMultipleToS3 } = await import('./cloud-storage')
+        const result = await uploadMultipleToS3(files, submissionId)
+        
+        if (result.success && result.files) {
+          const uploadedFiles: UploadedFile[] = result.files.map(cloudFile => ({
+            id: cloudFile.id,
+            originalName: cloudFile.originalName,
+            filename: cloudFile.key.split('/').pop() || cloudFile.key,
+            size: cloudFile.size,
+            mimeType: cloudFile.mimeType,
+            uploadedAt: cloudFile.uploadedAt,
+            path: cloudFile.url || cloudFile.signedUrl || cloudFile.key
+          }))
+          
+          return {
+            success: true,
+            files: uploadedFiles
+          }
+        } else {
+          return {
+            success: false,
+            error: result.error || 'Unknown error'
+          }
+        }
+      } catch (error) {
+        console.error('Cloud storage upload failed, falling back to local storage:', error)
+        // Fall through to local storage fallback
+      }
+    }
+
+    // Fallback to local storage
     const uploadedFiles: UploadedFile[] = []
     
     for (const file of files) {
@@ -163,18 +214,47 @@ export async function saveUploadedFiles(files: File[], submissionId: string): Pr
   }
 }
 
-// Get file by ID (Edge Runtime compatible)
-export async function getFileById(_fileId: string): Promise<{ file: ArrayBuffer; metadata: UploadedFile } | null> {
+// Get file by ID (with cloud storage support)
+export async function getFileById(fileId: string): Promise<{ file: ArrayBuffer; metadata: UploadedFile } | null> {
   try {
-    // In Edge Runtime, we can't read from filesystem
-    // This is a placeholder implementation
-    // In production, you would:
-    // 1. Retrieve from cloud storage
-    // 2. Get metadata from database
-    // 3. Return the file content and metadata
+    // Check if cloud storage is configured
+    if (process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY && process.env.AWS_S3_BUCKET) {
+      try {
+        // Extract S3 key from fileId (format: submissionId-timestamp-random-filename)
+        const parts = fileId.split('-')
+        if (parts.length >= 4) {
+          const submissionId = parts[0]
+          const timestamp = parts[1]
+          const random = parts[2]
+          const filename = parts.slice(3).join('-')
+          const s3Key = `contact-attachments/${submissionId}/${timestamp}-${random}-${filename}`
+          
+          const { getFileFromS3 } = await import('./cloud-storage')
+          const result = await getFileFromS3(s3Key)
+          
+          if (result) {
+            return {
+              file: result.file.buffer,
+              metadata: {
+                id: fileId,
+                originalName: result.metadata.originalName,
+                filename: result.metadata.key.split('/').pop() || result.metadata.key,
+                size: result.metadata.size,
+                mimeType: result.metadata.mimeType,
+                uploadedAt: result.metadata.uploadedAt,
+                path: result.metadata.key
+              }
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Cloud storage retrieval failed:', error)
+        // Fall through to local storage fallback
+      }
+    }
     
-    // For now, return null to indicate file not found
-    // This will be handled by the file serving endpoint
+    // Fallback to local storage (Edge Runtime compatible)
+    // In Edge Runtime, we can't read from filesystem
     return null
   } catch (error) {
     console.error('Error getting file:', error)
