@@ -3,7 +3,7 @@
  * Only loads and tracks when user has given consent for analytics cookies
  */
 
-import { hasConsentFor } from './consent'
+import { hasConsentFor, ConsentPreferences } from './consent'
 
 // Google Analytics configuration
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX'
@@ -59,12 +59,12 @@ function initializeGoogleAnalytics(): void {
 
   // Initialize gtag
   window.dataLayer = window.dataLayer || []
-  function gtag(...args: any[]) {
+  function gtag(...args: unknown[]) {
     window.dataLayer.push(args)
   }
   
   // Make gtag available globally
-  ;(window as any).gtag = gtag
+  ;(window as { gtag: typeof gtag }).gtag = gtag
 
   // Configure Google Analytics
   gtag('js', new Date())
@@ -110,7 +110,7 @@ export async function initializeAnalytics(): Promise<void> {
 export function trackPageView(url: string, title?: string): void {
   if (!isBrowser || !gaInitialized || !hasConsentFor('analytics')) return
 
-  const gtag = (window as any).gtag
+  const gtag = (window as { gtag: (...args: unknown[]) => void }).gtag
   if (gtag) {
     gtag('config', GA_MEASUREMENT_ID, {
       page_title: title || document.title,
@@ -124,11 +124,11 @@ export function trackPageView(url: string, title?: string): void {
  */
 export function trackEvent(
   eventName: string, 
-  parameters?: Record<string, any>
+  parameters?: Record<string, unknown>
 ): void {
   if (!isBrowser || !gaInitialized || !hasConsentFor('analytics')) return
 
-  const gtag = (window as any).gtag
+  const gtag = (window as { gtag: (...args: unknown[]) => void }).gtag
   if (gtag) {
     gtag('event', eventName, {
       ...parameters,
@@ -213,8 +213,9 @@ export function disableAnalytics(): void {
 
 // Listen for consent changes
 if (isBrowser) {
-  window.addEventListener('consent-updated', (event: any) => {
-    const { preferences } = event.detail
+  window.addEventListener('consent-updated', (event: Event) => {
+    const customEvent = event as CustomEvent<{ preferences: ConsentPreferences }>
+    const { preferences } = customEvent.detail
     
     if (preferences.analytics) {
       initializeAnalytics()
@@ -231,7 +232,7 @@ if (isBrowser) {
 // Type declarations for gtag
 declare global {
   interface Window {
-    dataLayer: any[]
-    gtag: (...args: any[]) => void
+    dataLayer: unknown[]
+    gtag: (...args: unknown[]) => void
   }
 }

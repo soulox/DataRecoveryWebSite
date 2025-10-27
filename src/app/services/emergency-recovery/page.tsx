@@ -143,7 +143,7 @@ export default function EmergencyRecoveryPage() {
                 Service d&apos;Urgence
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold">
-                Récupération d'Urgence
+                Récupération d&apos;Urgence
               </h1>
               <p className="text-xl text-muted-foreground">
                 Service d&apos;urgence pour situations critiques nécessitant une intervention immédiate. 

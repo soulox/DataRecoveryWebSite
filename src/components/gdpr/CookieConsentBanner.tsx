@@ -90,7 +90,7 @@ export const CookieConsentBanner: React.FC = () => {
                     </h3>
                     <p className="text-sm text-muted-foreground">
                       Nous utilisons des cookies pour améliorer votre expérience de navigation, 
-                      analyser l'utilisation du site et personnaliser le contenu. 
+                      analyser l&apos;utilisation du site et personnaliser le contenu. 
                       Vous pouvez choisir quels cookies accepter.
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -177,7 +177,7 @@ export const CookieConsentBanner: React.FC = () => {
                     <div className="flex-1">
                       <h4 className="font-medium text-sm">Cookies Analytiques</h4>
                       <p className="text-xs text-muted-foreground mt-1">
-                        Google Analytics pour analyser l'utilisation du site et améliorer nos services
+                        Google Analytics pour analyser l&apos;utilisation du site et améliorer nos services
                       </p>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -231,7 +231,7 @@ export const CookieConsentBanner: React.FC = () => {
                     <div className="flex-1">
                       <h4 className="font-medium text-sm">Cookies de Préférences</h4>
                       <p className="text-xs text-muted-foreground mt-1">
-                        Mémorisation de vos choix et préférences d'affichage
+                        Mémorisation de vos choix et préférences d&apos;affichage
                       </p>
                     </div>
                     <div className="flex items-center space-x-2">

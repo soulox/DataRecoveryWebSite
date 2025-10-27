@@ -53,7 +53,7 @@ export const ContactForm: React.FC = () => {
     }
   }
 
-  const handleFileUpload = (files: File[]) => {
+  const handleFileUpload = useCallback((files: File[]) => {
     const validation = validateFiles(files)
     if (!validation.valid) {
       setFileError(validation.error)
@@ -64,7 +64,7 @@ export const ContactForm: React.FC = () => {
     if (fileError) {
       setFileError(undefined)
     }
-  }
+  }, [fileError])
 
   const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || [])

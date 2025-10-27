@@ -247,7 +247,7 @@ export const CookiePreferences: React.FC<CookiePreferencesProps> = ({
               {/* Privacy Policy Link */}
               <div className="text-center pt-4 border-t">
                 <p className="text-xs text-muted-foreground">
-                  Pour plus d'informations, consultez notre{' '}
+                  Pour plus d&apos;informations, consultez notre{' '}
                   <a 
                     href="/privacy" 
                     className="text-primary hover:underline"

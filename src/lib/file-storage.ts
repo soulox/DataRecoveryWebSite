@@ -234,7 +234,7 @@ export async function getFileById(fileId: string): Promise<{ file: ArrayBuffer; 
           
           if (result) {
             return {
-              file: result.file.buffer,
+              file: result.file.buffer as ArrayBuffer,
               metadata: {
                 id: fileId,
                 originalName: result.metadata.originalName,

@@ -1,10 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { checkS3Health } from '@/lib/cloud-storage'
 
 // Configure for Edge Runtime
 export const runtime = 'edge'
 
-export async function GET(_request: NextRequest) {
+export async function GET() {
   try {
     // Check if cloud storage is configured
     const isConfigured = !!(

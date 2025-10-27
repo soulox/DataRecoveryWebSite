@@ -70,7 +70,7 @@ const ALLOWED_EXTENSIONS = [
 function generateS3Key(originalName: string, submissionId: string): string {
   const timestamp = Date.now()
   const random = Math.random().toString(36).substring(2, 8)
-  const extension = originalName.split('.').pop()?.toLowerCase() || ''
+  const _extension = originalName.split('.').pop()?.toLowerCase() || ''
   const sanitizedName = originalName.replace(/[^a-zA-Z0-9.-]/g, '_')
   
   return `contact-attachments/${submissionId}/${timestamp}-${random}-${sanitizedName}`
@@ -295,7 +295,7 @@ export async function deleteFileFromS3(key: string): Promise<boolean> {
 }
 
 // List files for a submission
-export async function listFilesForSubmission(submissionId: string): Promise<CloudFile[]> {
+export async function listFilesForSubmission(_submissionId: string): Promise<CloudFile[]> {
   try {
     // This would require ListObjectsV2Command
     // For now, we'll return an empty array
@@ -308,7 +308,7 @@ export async function listFilesForSubmission(submissionId: string): Promise<Clou
 }
 
 // Clean up old files (run periodically)
-export async function cleanupOldFiles(maxAgeHours: number = 24): Promise<number> {
+export async function cleanupOldFiles(_maxAgeHours: number = 24): Promise<number> {
   try {
     // This would require ListObjectsV2Command and DeleteObjectsCommand
     // For now, we'll return 0
@@ -335,20 +335,20 @@ export async function checkS3Health(): Promise<{ healthy: boolean; error?: strin
     
     await s3Client.send(command)
     return { healthy: true }
-  } catch (error: any) {
+  } catch (error: unknown) {
     // If it's a NoSuchKey error, the connection is working
-    if (error.name === 'NoSuchKey') {
+    if (error && typeof error === 'object' && 'name' in error && error.name === 'NoSuchKey') {
       return { healthy: true }
     }
     
     // If it's an access denied error, the connection is working but permissions might be wrong
-    if (error.name === 'AccessDenied') {
+    if (error && typeof error === 'object' && 'name' in error && error.name === 'AccessDenied') {
       return { healthy: true }
     }
     
     return { 
       healthy: false, 
-      error: error.message || 'Unknown error' 
+      error: (error && typeof error === 'object' && 'message' in error ? error.message : 'Unknown error') as string
     }
   }
 }
